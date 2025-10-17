@@ -1,0 +1,61 @@
+.wallets-add-more {
+    display: flex;
+    flex-direction: column;
+    max-width: 123.2rem;
+    width: 100%;
+    padding-top: 1.6rem;
+
+    @include mobile-or-tablet-screen {
+        padding-top: 0;
+    }
+
+    &__header {
+        margin-bottom: 1.6rem;
+
+        @include mobile-or-tablet-screen {
+            padding: 0 1.6rem;
+            margin-bottom: 0;
+        }
+    }
+
+    &__carousel {
+        overflow: hidden;
+        background-color: #fff;
+        padding-bottom: 3.2rem;
+        border-radius: 0.8rem;
+        position: relative;
+        height: 100%;
+
+        @include mobile-or-tablet-screen {
+            padding-block: 1.6rem 2.4rem;
+            padding-inline-start: 1.6rem;
+            border-radius: unset;
+        }
+
+        &-wrapper {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        &-btn {
+            z-index: 1;
+            position: absolute;
+            top: 45%;
+            box-shadow: 0px 24px 24px 0px rgba(0, 0, 0, 0.08), 0px 0px 24px 0px rgba(0, 0, 0, 0.08);
+
+            &:disabled {
+                display: none;
+            }
+
+            &--prev {
+                inset-inline-start: 1.6rem;
+            }
+
+            &--next {
+                inset-inline-end: 1.6rem;
+            }
+        }
+    }
+}

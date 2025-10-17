@@ -1,0 +1,33 @@
+.asset-summary {
+    display: flex;
+    flex-direction: column;
+    margin-inline-start: auto;
+
+    @include mobile-or-tablet-screen {
+        align-items: center;
+    }
+
+    &__container.content-loader {
+        width: 12rem;
+        cursor: not-allowed;
+        margin-inline-start: auto;
+
+        @include rtl {
+            width: unset;
+        }
+
+        @include mobile-or-tablet-screen {
+            margin-inline: auto;
+            width: 10rem;
+        }
+    }
+
+    &--total {
+        display: flex;
+        border-bottom: 4px dotted var(--checkbox-disabled-grey);
+
+        @include mobile-or-tablet-screen {
+            margin-top: 3rem;
+        }
+    }
+}

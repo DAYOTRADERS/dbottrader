@@ -1,0 +1,59 @@
+@import '../../../../components/SkeletonLoader/SkeletonLoader.scss';
+
+.wallets-cfd-success {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 24rem;
+    padding: 1rem;
+    position: relative;
+    border-radius: 1rem;
+
+    @include mobile-or-tablet-screen {
+        height: fit-content;
+    }
+
+    &__badge {
+        position: absolute;
+        top: 0;
+        inset-inline-end: 0;
+        font-weight: 700;
+        border-start-end-radius: 1rem;
+        border-end-start-radius: 1rem;
+        display: grid;
+        place-items: center;
+        color: #ffffff;
+        height: 2.5rem;
+        width: 5rem;
+
+        &--demo {
+            background-color: #377cfc;
+        }
+
+        &--real {
+            background-color: #ff444f;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__gradient {
+        border-radius: 1rem;
+    }
+
+    &__market-icon {
+        display: flex;
+        padding: 0.5rem;
+        width: 10rem;
+        height: 7rem;
+    }
+
+    &__balance-loader {
+        padding: 0.7rem;
+        width: 8rem;
+    }
+}

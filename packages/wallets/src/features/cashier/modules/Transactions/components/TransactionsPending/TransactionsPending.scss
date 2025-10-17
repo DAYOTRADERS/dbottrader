@@ -1,0 +1,22 @@
+.wallets-transactions-pending {
+    position: relative;
+    width: 100%;
+    max-width: 80rem;
+    display: flex;
+    flex-grow: 1;
+
+    &__group-title {
+        margin-bottom: 0.8rem;
+        margin-inline-start: 1.6rem;
+
+        @include mobile-or-tablet-screen {
+            margin-inline-start: 0;
+        }
+
+        @include rtl {
+            direction: ltr;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}

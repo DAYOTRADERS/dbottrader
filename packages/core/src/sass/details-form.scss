@@ -1,0 +1,190 @@
+.details-form {
+    display: grid;
+    align-content: start;
+    @include desktop-screen {
+        padding: 0 0.4rem;
+    }
+    @include mobile-or-tablet-screen {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    &__banner-container {
+        display: flex;
+        justify-content: center;
+        padding: 0 4.6rem;
+
+        .da-inline-note-with-icon {
+            align-items: center;
+            margin-top: 0.8rem;
+            padding: 0.8rem;
+            display: flex;
+            background: $color-yellow-3;
+            border-radius: $BORDER_RADIUS;
+            gap: 0.8rem;
+            line-height: 1.4rem;
+        }
+
+        @include mobile-or-tablet-screen {
+            padding: 0 1.6rem;
+        }
+
+        @include tablet-screen {
+            display: inline;
+        }
+    }
+
+    &__sub-header {
+        @include desktop-screen {
+            margin: 0 4rem 4rem;
+        }
+        @include mobile-or-tablet-screen {
+            margin-bottom: 0.8rem;
+        }
+    }
+
+    &__elements {
+        flex-grow: 1;
+        margin: 1.2rem auto;
+        width: 45%;
+
+        &--wide {
+            width: 45%;
+        }
+        &-container {
+            height: calc(100% - 76px);
+            overflow: hidden;
+
+            @include mobile-or-tablet-screen {
+                height: auto;
+                width: calc(100% - 3.2rem);
+                overflow: unset;
+                margin: 1.6rem auto;
+            }
+        }
+        .dc-autocomplete {
+            margin-bottom: 3.2rem;
+        }
+        .dc-radio__input {
+            margin-bottom: 2.4rem;
+        }
+        .dc-input {
+            &__label {
+                top: 1rem;
+            }
+            label {
+                top: 1rem;
+                background-color: var(--general-main-2);
+                @include mobile-or-tablet-screen {
+                    background-color: var(--fill-normal);
+                }
+            }
+            .dc-field--error {
+                font-size: 1.1rem;
+            }
+            @include desktop-screen {
+                /* To get rid of ugly chrome autofill shadow dom-applied background color */
+                &__field {
+                    &:-webkit-autofill {
+                        -webkit-box-shadow: 0 0 0 30px var(--fill-normal) inset !important;
+
+                        &:hover,
+                        &:focus,
+                        &:active {
+                            -webkit-box-shadow: 0 0 0 30px var(--fill-normal) inset !important;
+                        }
+                    }
+                }
+            }
+        }
+        .dc-datepicker__input {
+            .dc-input__field {
+                background-color: var(--fill-normal);
+            }
+        }
+        .dc-select-native {
+            margin-bottom: 3.2rem;
+        }
+        .dc-dropdown__display {
+            background-color: var(--general-main-2);
+
+            &-placeholder-text {
+                background-color: var(--general-main-2);
+            }
+        }
+        .dc-dropdown__container {
+            margin-bottom: 3rem;
+        }
+        @include mobile-or-tablet-screen {
+            width: 100%;
+            margin: 0;
+            padding: 1rem 1.6rem 6rem;
+            overflow-y: auto;
+        }
+    }
+    &__loader {
+        .barspinner {
+            margin-top: 0.4rem;
+            margin-bottom: 3.2rem;
+        }
+    }
+    &__tax {
+        position: relative;
+
+        @include mobile-or-tablet-screen {
+            padding-right: 2rem;
+        }
+
+        .dc-popover {
+            position: absolute;
+            cursor: pointer;
+            top: 10px;
+            right: -25px;
+
+            @include mobile-or-tablet-screen {
+                right: -5px;
+            }
+        }
+    }
+
+    .dc-page-error__container {
+        height: 100%;
+    }
+    &__heading {
+        margin: 1.6rem;
+    }
+    &__description {
+        margin: 1.6rem auto;
+        width: 45%;
+        @include desktop-screen {
+            display: flex;
+            flex-direction: column;
+        }
+        @include tablet {
+            width: 70%;
+        }
+        @include mobile-or-tablet-screen {
+            text-align: left;
+            width: unset;
+            margin: 0 2.4rem;
+            line-height: 20px;
+        }
+
+        .cfd-personal-details-modal__form & {
+            margin: 0 auto;
+            width: unset;
+            padding-top: 3.2rem;
+        }
+    }
+    .address-details-form__eu {
+        margin-top: 4.4rem;
+    }
+}
+
+.financial-assessment {
+    gap: 1.6rem;
+    &__form {
+        @include desktop-screen {
+            width: 70%;
+        }
+    }
+}

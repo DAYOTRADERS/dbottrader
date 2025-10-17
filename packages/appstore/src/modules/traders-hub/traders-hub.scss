@@ -1,0 +1,76 @@
+.traders-hub {
+    max-width: 128rem;
+    margin: auto;
+    padding: 4rem;
+
+    &:has(.wallets-banner__container) {
+        padding-top: 0;
+    }
+
+    @include mobile-or-tablet-screen {
+        max-width: 60rem;
+        padding: 1.6rem;
+        width: 100%;
+    }
+
+    &__main-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+        &-reversed {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &--eu-user {
+        @include mobile-or-tablet-screen {
+            min-height: 650px;
+        }
+
+        &-without-mt5 {
+            @include mobile-or-tablet-screen {
+                min-height: 540px;
+            }
+        }
+    }
+
+    &__button-toggle {
+        margin-top: 3rem;
+        padding: 0.4rem;
+        background-color: transparent;
+    }
+
+    &--mobile {
+        overflow: scroll !important;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    &--mt5-not-allowed {
+        margin-top: 2rem;
+    }
+}
+
+.dc-button-menu__toggle {
+    background-color: transparent;
+    border-bottom: 1px solid var(--general-section-1);
+    border-radius: 0;
+    span {
+        color: var(--text-prominent);
+    }
+}
+
+.dc-button-menu__toggle--active {
+    background-color: transparent;
+    border-bottom: 1px solid var(--button-primary-default);
+    border-radius: 0;
+}
+
+.get-started-trading-banner-ct:has(*) {
+    margin-block-end: 3.2rem;
+
+    @include desktop-screen {
+        margin-block-end: 6.4rem;
+    }
+}

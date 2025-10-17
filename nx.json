@@ -1,0 +1,39 @@
+{
+    "extends": "nx/presets/npm.json",
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "@nx/workspace/tasks-runners/default",
+            "options": {
+                "cacheableOperations": ["build", "test", "test:eslint", "package", "prepare", "build:travis"]
+            }
+        }
+    },
+    "targetDependencies": {
+        "build": [
+            {
+                "target": "build",
+                "projects": "dependencies"
+            }
+        ],
+        "prepare": [
+            {
+                "target": "prepare",
+                "projects": "dependencies"
+            }
+        ],
+        "package": [
+            {
+                "target": "package",
+                "projects": "dependencies"
+            }
+        ]
+    },
+    "affected": {
+        "defaultBase": "master"
+    },
+    "pluginsConfig": {
+        "@nx/js": {
+            "analyzeSourceFiles": false
+        }
+    }
+}

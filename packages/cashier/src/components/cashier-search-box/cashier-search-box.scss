@@ -1,0 +1,22 @@
+.cashier-search-box {
+    width: 100%;
+    margin-inline-end: 1.6rem;
+    .dc-input {
+        margin-bottom: 0;
+        height: 3.2rem;
+        overflow: hidden;
+        &__field {
+            padding: 0 2rem;
+        }
+        &__leading-icon {
+            margin-inline-start: 0.9rem;
+            top: 0.9rem;
+        }
+        &__trailing-icon {
+            cursor: pointer;
+        }
+        &__container {
+            height: 3.2rem;
+        }
+    }
+}

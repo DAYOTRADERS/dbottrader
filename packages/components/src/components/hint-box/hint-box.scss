@@ -1,0 +1,46 @@
+.dc-hint-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-size-xxxs);
+    line-height: 1.4rem;
+    padding: 8px;
+    border-radius: $BORDER_RADIUS;
+
+    &--inline {
+        margin-top: 0.8rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+
+        &-message {
+            > p {
+                padding-bottom: 0 !important;
+            }
+        }
+        &-icon {
+            margin-right: 0;
+        }
+    }
+    &--info {
+        background-color: var(--transparent-info);
+    }
+    &--warn {
+        background-color: var(--status-warning-transparent);
+    }
+    &--danger {
+        background-color: var(--transparent-danger);
+    }
+    &__icon {
+        margin-right: 8px;
+    }
+    &__message {
+        color: var(--text-prominent);
+    }
+}
+
+.hint-box-layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: flex-start;
+}

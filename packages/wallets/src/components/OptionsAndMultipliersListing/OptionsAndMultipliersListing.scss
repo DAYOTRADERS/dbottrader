@@ -1,0 +1,85 @@
+@import '../SkeletonLoader/SkeletonLoader.scss';
+
+.wallets-options-and-multipliers-listing {
+    width: 100%;
+    height: 100%;
+    padding-top: 2.4rem;
+
+    @include mobile-or-tablet-screen {
+        padding-top: unset;
+        margin-bottom: 0.8rem;
+        border-top: unset;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        align-self: stretch;
+        padding-bottom: 2.4rem;
+        justify-content: space-between;
+
+        &-title {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+
+            &__loader {
+                width: 12.1rem;
+                height: 2.4rem;
+            }
+        }
+
+        @include mobile-or-tablet-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 1.6rem;
+            padding-bottom: 0;
+        }
+
+        &-subtitle {
+            &__link {
+                color: var(--brand-coral, #ff444f);
+                text-underline-offset: 0.3rem;
+            }
+            &__loader {
+                margin-top: 0.2rem;
+                width: 42.6rem;
+                height: 2.4rem;
+            }
+        }
+    }
+
+    &__content {
+        display: grid;
+        gap: 1.6rem;
+        grid-template-columns: repeat(3, 1fr);
+        user-select: none;
+
+        @include mobile-or-tablet-screen {
+            grid-template-rows: repeat(5, 1fr);
+            &--eu {
+                grid-template-rows: repeat(1, 1fr);
+            }
+            grid-template-columns: auto;
+            gap: 0;
+        }
+
+        &__icon {
+            cursor: pointer;
+        }
+
+        &__details {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    &__icon {
+        width: fit-content;
+    }
+}

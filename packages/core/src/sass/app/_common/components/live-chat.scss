@@ -1,0 +1,21 @@
+.livechat {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding-right: 1.6rem;
+
+    &__icon {
+        margin-right: 1.6rem;
+        width: 1.6rem;
+        height: 1.6rem;
+
+        &-wrapper {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+// avoid blinking of red LC widget during loading and calling 'hide'
+#chat-widget-minimized {
+    display: none !important;
+}

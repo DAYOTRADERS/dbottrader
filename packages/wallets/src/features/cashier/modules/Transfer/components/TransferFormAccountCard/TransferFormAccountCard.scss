@@ -1,0 +1,87 @@
+.wallets-transfer-form-account-card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+
+    &--badge {
+        border: 1px solid var(--status-warning, #ffad3a);
+        border-radius: 1rem;
+        margin-top: 0.4rem;
+    }
+
+    &--is-input {
+        .wallets-transfer-form-account-card__icon {
+            margin-inline-end: 0.8rem;
+
+            .wallets-market-currency-icon {
+                margin-bottom: 0.4rem;
+
+                &__currency-icon {
+                    transform: translate(-0.3rem, 0.7rem);
+                }
+            }
+        }
+    }
+
+    &--is-modal {
+        .wallets-transfer-form-account-card__icon {
+            margin-inline-end: 1.6rem;
+
+            .wallets-market-currency-icon {
+                margin-bottom: 0.4rem;
+
+                &__currency-icon {
+                    transform: translate(-0.3rem, 0.7rem);
+                }
+            }
+        }
+    }
+
+    @include mobile-or-tablet-screen {
+        &--is-input {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.4rem;
+
+            .wallets-transfer-form-account-card__icon {
+                margin-inline-end: 0.4rem;
+            }
+        }
+
+        &--is-modal {
+            flex-direction: row;
+            align-items: center;
+
+            .wallets-transfer-form-account-card__icon {
+                margin-inline-end: 0.8rem;
+            }
+        }
+    }
+
+    &__icon-with-badge {
+        display: flex;
+        align-items: end;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        align-items: flex-start;
+    }
+
+    &__modal-badge {
+        margin-inline-start: 1rem;
+    }
+
+    .wallets-market-currency-icon {
+        .wallets-gradient {
+            border-radius: 0.15rem;
+        }
+    }
+
+    .wallets-gradient {
+        border-radius: 0.4rem;
+    }
+}

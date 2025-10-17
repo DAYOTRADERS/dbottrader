@@ -1,0 +1,31 @@
+@import '../_common/components/theme-select';
+@import '../_common/components/settings-language';
+
+/** @define dc-modal-header; */
+.dc-modal-header {
+    &--modal-settings {
+        background-color: var(--general-main-1);
+    }
+    &__title {
+        &--modal-settings {
+            min-width: 28%;
+            background-color: var(--general-section-1);
+            max-width: 206px;
+        }
+    }
+}
+
+/** @define dc-modal; */
+.dc-modal {
+    &__container_modal-settings {
+        /* postcss-bem-linter: ignore */
+        & .dc-modal-header {
+            border-bottom-width: 0;
+        }
+        /* postcss-bem-linter: ignore */
+        & .dc-vertical-tab__tab-meta-wrapper {
+            width: 100%;
+            max-width: 206px;
+        }
+    }
+}

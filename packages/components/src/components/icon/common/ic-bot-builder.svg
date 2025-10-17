@@ -1,0 +1,32 @@
+<svg width="200" height="220" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="100" cy="210" rx="40" ry="10" fill="#B0BEC5" opacity="0.3"></ellipse>
+
+  <!-- Bot body (main face) -->
+  <rect x="30" y="40" rx="40" ry="40" width="140" height="120" fill="#1A237E"></rect>
+
+  <!-- Side ears -->
+  <rect x="10" y="70" width="20" height="40" rx="10" fill="#1A237E"></rect>
+  <rect x="170" y="70" width="20" height="40" rx="10" fill="#1A237E"></rect>
+
+  <!-- Antenna -->
+  <line x1="100" y1="20" x2="100" y2="40" stroke="#1A237E" stroke-width="5"></line>
+  <circle cx="100" cy="15" r="10" fill="#1A237E"></circle>
+
+  <!-- Face screen -->
+  <rect x="45" y="55" rx="30" ry="30" width="110" height="90" fill="#0D1117"></rect>
+
+  <!-- Eyes -->
+  <circle cx="75" cy="85" r="8" fill="white"></circle>
+  <circle cx="125" cy="85" r="8" fill="white"></circle>
+  <circle cx="78" cy="82" r="3" fill="#0D1117"></circle>
+  <circle cx="128" cy="82" r="3" fill="#0D1117"></circle>
+
+  <!-- Smile -->
+  <path d="M80 110 Q100 125 120 110" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"></path>
+
+  <!-- LED lights -->
+  <circle cx="70" cy="145" r="4" fill="#F44336"></circle>
+  <circle cx="85" cy="145" r="4" fill="#4CAF50"></circle>
+  <circle cx="100" cy="145" r="4" fill="#FFEB3B"></circle>
+</svg>

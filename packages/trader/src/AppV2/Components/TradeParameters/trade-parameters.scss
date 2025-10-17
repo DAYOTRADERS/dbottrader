@@ -1,0 +1,99 @@
+.trade-params {
+    border-radius: var(--core-borderRadius-400);
+    background-color: var(--semantic-color-slate-solid-surface-frame-low);
+    padding: var(--core-spacing-800);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--core-spacing-800);
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__options {
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: var(--core-spacing-400);
+
+            &--horizontal {
+                align-items: center;
+                flex-direction: row;
+                justify-content: unset;
+                flex-wrap: nowrap;
+                overflow-x: scroll;
+                white-space: nowrap;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                // if container has 2 children, then apply style to children
+                &:has(> :last-child:nth-child(2)) {
+                    .trade-params__option--minimized {
+                        width: unset;
+                    }
+                }
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+
+            &--minimized {
+                max-height: 104px;
+                padding: var(--core-spacing-400) var(--core-spacing-400) var(--core-spacing-200) var(--core-spacing-400);
+
+                .quill-input__container {
+                    width: unset;
+                }
+            }
+        }
+    }
+    &__option {
+        &--minimized {
+            width: 16rem;
+            flex-shrink: 0;
+        }
+        &:not(.trade-params__option--minimized) {
+            height: var(--core-size-2800);
+        }
+        .input {
+            padding-inline-start: 0;
+            padding-block: 1px;
+            padding-inline-end: 2px;
+            height: unset;
+        }
+    }
+    &--minimized {
+        min-height: var(--core-size-3600);
+        width: 100%;
+        padding-bottom: 6.4rem;
+
+        &:has(.trade-params__options__wrapper--horizontal:only-child) {
+            padding-bottom: 0;
+        }
+    }
+
+    &__text--disabled {
+        color: var(--component-textIcon-normal-disabled);
+    }
+}
+
+.text-field--custom {
+    .quill-input {
+        &-no-label__wrapper {
+            position: relative;
+            .input {
+                padding-inline: var(--core-spacing-1700);
+            }
+        }
+        &-label__label {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            inset-inline-start: 0;
+            z-index: 2;
+        }
+    }
+}

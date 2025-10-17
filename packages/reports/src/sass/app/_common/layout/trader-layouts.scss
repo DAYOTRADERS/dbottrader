@@ -1,0 +1,76 @@
+/** @define app-contents; weak */
+.app-contents {
+    &--show-positions-drawer:not(&--is-mobile) {
+        @include desktop-screen {
+            .trade-container {
+                .chart-container {
+                    width: 100%;
+
+                    .sc-navigation-widget,
+                    .cq-top-ui-widgets,
+                    .sc-toolbar-widget,
+                    .stx-panel-control {
+                        transform: translate3d(248px, 0, 0);
+                        @include rtl {
+                            transform: translate3d(-248px, 0, 0);
+                        }
+                    }
+                    .cq-chart-controls {
+                        transform: translate3d(130px, 0, 0) !important;
+                    }
+                    .cq-bottom-ui-widgets {
+                        .digits__container,
+                        .accumulators-stats {
+                            transform: translate3d(130px, 0, 0) !important;
+                        }
+                    }
+                    .cq-chart-control-left {
+                        .cq-chart-controls {
+                            transform: translate3d(248px, 0, 0) !important;
+                        }
+                        .cq-bottom-ui-widgets {
+                            .digits__container,
+                            .accumulators-stats {
+                                transform: translate3d(170px, 40px, 0) !important;
+                            }
+                        }
+                    }
+                    &__loader {
+                        .barspinner {
+                            transform: translate3d(130px, 0, 0) !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &--is-mobile {
+        .top-widgets-portal {
+            position: absolute;
+            top: 0px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            z-index: 1;
+
+            .recent-trade-info {
+                min-width: 8rem;
+                line-height: 2.4rem;
+                margin-left: 1.6rem;
+            }
+        }
+        .cq-chart-title {
+            > .cq-menu-btn {
+                padding: 0.4rem;
+                user-select: none;
+                -webkit-touch-callout: none;
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+        & .contract-details-wrapper + .smartcharts-undefined {
+            & .cq-symbols-display {
+                display: none;
+            }
+        }
+    }
+}

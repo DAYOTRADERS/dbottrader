@@ -1,0 +1,14 @@
+.wallets-desktop-wallets-list {
+    max-width: 123.2rem;
+    width: 100%;
+    &--with-banner {
+        @include desktop-screen {
+            max-height: 63rem;
+        }
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    border: 1px solid #ebecef;
+    border-radius: 1.6rem;
+}

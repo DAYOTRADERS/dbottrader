@@ -1,0 +1,32 @@
+.wallets-withdrawal-crypto-destination-address {
+    max-width: 123.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+
+    &__content {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.8rem;
+        padding-block: 0.8rem;
+        padding-inline-start: 0.8rem;
+        border-radius: 4px;
+        background: #f2f3f4;
+
+        & > span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        & .wallets-clipboard {
+            padding-inline-end: 0.8rem;
+        }
+    }
+
+    @include mobile-or-tablet-screen {
+        max-width: 27.2rem;
+    }
+}

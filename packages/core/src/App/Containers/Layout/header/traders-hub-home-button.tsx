@@ -1,0 +1,53 @@
+import React from 'react';
+import { useHistory, useLocation } from 'react-router';
+import classNames from 'classnames';
+import { Icon, Text } from '@deriv/components';
+import { routes } from '@deriv/shared';
+import { observer, useStore } from '@deriv/stores';
+import { Localize } from '@deriv/translations';
+import { useIsHubRedirectionEnabled } from '@deriv/hooks';
+
+const TradersHubHomeButton = observer(() => {
+    const { ui, client } = useStore();
+    const { is_dark_mode_on } = ui;
+    const history = useHistory();
+    const location = useLocation();
+    const { isHubRedirectionEnabled } = useIsHubRedirectionEnabled();
+    const { has_wallet } = client;
+    const { pathname } = location;
+
+    const TradersHubIcon = is_dark_mode_on ? 'IcAppstoreHomeDark' : 'IcAppstoreTradersHubHomeUpdated';
+
+    const handleTradershubRedirect = () => {
+        if (isHubRedirectionEnabled && has_wallet) {
+            const PRODUCTION_REDIRECT_URL = 'https://hub.deriv.com/tradershub';
+            const STAGING_REDIRECT_URL = 'https://staging-hub.deriv.com/tradershub';
+            const redirectUrl = process.env.NODE_ENV === 'production' ? PRODUCTION_REDIRECT_URL : STAGING_REDIRECT_URL;
+
+            const url_query_string = window.location.search;
+            const url_params = new URLSearchParams(url_query_string);
+            const account_currency = url_params.get('account') || window.sessionStorage.getItem('account');
+
+            window.location.href = `${redirectUrl}/redirect?action=redirect_to&redirect_to=home${account_currency ? `&account=${account_currency}` : ''}`;
+        } 
+        
+    };
+
+    return (
+        <div
+            data-testid='dt_traders_hub_home_button'
+            
+            
+            onClick={handleTradershubRedirect}
+        >
+            
+            <Text className='traders-hub-header__tradershub--text'>
+                
+                    <Localize i18n_default_text="FINEST ANALYSIS" />
+            
+            </Text>
+        </div>
+    );
+});
+
+export default TradersHubHomeButton;

@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+
+.dashboard {
+    @include desktop-screen {
+        height: calc(100vh - #{$HEADER_HEIGHT} - #{$FOOTER_HEIGHT});
+    }
+    @include mobile-or-tablet-screen {
+        height: calc(100vh - #{$MOBILE_HEADER_HEIGHT});
+    }
+}
+
+.dashboard-onboarding {
+    @include desktop-screen {
+        height: inherit;
+    }
+    @include mobile-or-tablet-screen {
+        height: calc(100vh - #{$MOBILE_HEADER_HEIGHT});
+    }
+}
+
+.dw-dashboard {
+    height: 100%;
+}
+
+@keyframes triggerAnimation {
+    from {
+        transform: rotate(10deg);
+    }
+    to {
+        transform: rotate(-10deg);
+    }
+}

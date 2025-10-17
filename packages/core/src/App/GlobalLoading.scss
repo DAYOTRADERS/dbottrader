@@ -1,0 +1,1186 @@
+.global-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a0d1a 25%, #0d1a0d 50%, #1a0d1a 75%, #0a0a0f 100%);
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    
+    /* Performance optimizations */
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+
+    /* Grid background */
+    .grid-background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.15;
+        
+        .grid-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(30, 144, 255, 0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(30, 144, 255, 0.2) 1px, transparent 1px);
+            background-size: 15px 15px;
+            animation: grid-pulse 4s ease-in-out infinite;
+            
+            @media (min-width: 480px) {
+                background-size: 20px 20px;
+            }
+        }
+        
+        .grid-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 30%, #0a0a0f 80%);
+            animation: grid-overlay-shift 6s ease-in-out infinite;
+        }
+    }
+
+    /* Data points animation */
+    .data-points-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        
+        .data-point {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #1E90FF;
+            border-radius: 50%;
+            box-shadow: 0 0 6px 1px rgba(30, 144, 255, 0.7);
+            animation: data-point-float 4s ease-in-out infinite, energy-pulse 2s ease-in-out infinite;
+            will-change: transform, opacity;
+            transform: translateZ(0);
+            
+            @media (min-width: 768px) {
+                width: 4px;
+                height: 4px;
+                box-shadow: 0 0 10px 2px rgba(30, 144, 255, 0.7);
+            }
+        }
+    }
+
+    /* Enhanced particle effects */
+    .particle-effects {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: radial-gradient(circle, rgba(0, 191, 255, 0.8) 0%, rgba(30, 144, 255, 0.4) 50%, transparent 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+            will-change: transform, opacity;
+            transform: translateZ(0);
+            
+            @media (min-width: 480px) {
+                width: 3px;
+                height: 3px;
+            }
+            
+            @media (min-width: 768px) {
+                width: 4px;
+                height: 4px;
+            }
+        }
+    }
+
+    /* Binary rain effect */
+    .binary-rain {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        
+        .binary-digit {
+            position: absolute;
+            color: rgba(30, 144, 255, 0.7);
+            font-size: 10px;
+            font-family: 'Courier New', monospace;
+            top: -20px;
+            animation: matrix-rain 8s linear infinite;
+            text-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+            will-change: transform, opacity;
+            transform: translateZ(0);
+            
+            @media (min-width: 480px) {
+                font-size: 12px;
+            }
+            
+            @media (min-width: 768px) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    /* Logo styling */
+    .logo-container {
+        position: relative;
+        margin-bottom: 15px;
+        z-index: 2;
+        
+        @media (min-width: 480px) {
+            margin-bottom: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: auto;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 10px rgba(30, 144, 255, 0.5));
+            
+            @media (min-width: 360px) {
+                width: 70px;
+            }
+            
+            @media (min-width: 480px) {
+                width: 90px;
+            }
+            
+            @media (min-width: 768px) {
+                width: 120px;
+            }
+        }
+        
+        .logo-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(30, 144, 255, 0.4) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+            animation: energy-pulse 3s ease-in-out infinite;
+            
+            @media (min-width: 360px) {
+                width: 90px;
+                height: 90px;
+            }
+            
+            @media (min-width: 480px) {
+                width: 110px;
+                height: 110px;
+            }
+            
+            @media (min-width: 768px) {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    }
+
+    /* Deriv Branding Styles */
+    .deriv-branding {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 20px;
+        z-index: 2;
+
+        @media (min-width: 480px) {
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        @media (min-width: 768px) {
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .powered-by,
+        .partnership {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            background: rgba(18, 25, 40, 0.6);
+            border: 1px solid rgba(30, 144, 255, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 15px rgba(30, 144, 255, 0.2);
+            transition: all 0.3s ease;
+
+            @media (min-width: 480px) {
+                padding: 10px 16px;
+                gap: 8px;
+            }
+
+            @media (min-width: 768px) {
+                padding: 12px 20px;
+                gap: 10px;
+            }
+
+            .brand-text {
+                font-size: 10px;
+                color: rgba(255, 255, 255, 0.7);
+                font-weight: 400;
+                letter-spacing: 0.5px;
+
+                @media (min-width: 480px) {
+                    font-size: 11px;
+                }
+
+                @media (min-width: 768px) {
+                    font-size: 12px;
+                }
+            }
+
+            .deriv-name {
+                font-size: 11px;
+                font-weight: 700;
+                color: #1E90FF;
+                background: linear-gradient(90deg, #1E90FF, #00BFFF);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
+
+                @media (min-width: 480px) {
+                    font-size: 12px;
+                }
+
+                @media (min-width: 768px) {
+                    font-size: 14px;
+                }
+            }
+
+            .brand-glow {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle, rgba(30, 144, 255, 0.1) 0%, transparent 70%);
+                border-radius: 20px;
+                opacity: 0;
+                animation: brand-glow-pulse 3s ease-in-out infinite;
+            }
+
+            &:hover {
+                border-color: rgba(30, 144, 255, 0.6);
+                box-shadow: 0 0 20px rgba(30, 144, 255, 0.4);
+                transform: translateY(-1px);
+            }
+        }
+
+        .powered-by .brand-glow {
+            animation-delay: 0s;
+        }
+
+        .partnership .brand-glow {
+            animation-delay: 1.5s;
+        }
+    }
+
+    /* Content wrapper */
+    .content-wrapper {
+        width: 100%;
+        max-width: 95%;
+        
+        @media (min-width: 480px) {
+            max-width: 90%;
+        }
+        
+        @media (min-width: 768px) {
+            max-width: 600px;
+        }
+    }
+
+    /* Trading terminal */
+    .trading-terminal {
+        width: 100%;
+        background: rgba(18, 25, 40, 0.8);
+        border: 1px solid rgba(30, 144, 255, 0.3);
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 20px rgba(30, 144, 255, 0.2);
+        backdrop-filter: blur(5px);
+        position: relative;
+        overflow: hidden;
+        z-index: 2;
+        will-change: transform, opacity;
+        transform: translateZ(0);
+        
+        /* Holographic shimmer effect */
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30, 144, 255, 0.1), transparent);
+            animation: holographic-shimmer 3s ease-in-out infinite;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+        
+        @media (min-width: 480px) {
+            padding: 12px;
+            border-radius: 10px;
+        }
+        
+        @media (min-width: 768px) {
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(30, 144, 255, 0.5), transparent);
+        }
+        
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            
+            @media (min-width: 480px) {
+                margin-bottom: 10px;
+                padding-bottom: 6px;
+            }
+            
+            @media (min-width: 768px) {
+                margin-bottom: 12px;
+                padding-bottom: 8px;
+            }
+            
+            .terminal-title {
+                font-size: 9px;
+                font-weight: 600;
+                color: #1E90FF;
+                letter-spacing: 0.3px;
+                
+                @media (min-width: 480px) {
+                    font-size: 10px;
+                    letter-spacing: 0.5px;
+                }
+                
+                @media (min-width: 768px) {
+                    font-size: 12px;
+                    letter-spacing: 1px;
+                }
+            }
+            
+            .terminal-status {
+                display: flex;
+                align-items: center;
+                font-size: 8px;
+                color: #00ff47;
+                
+                @media (min-width: 480px) {
+                    font-size: 9px;
+                }
+                
+                @media (min-width: 768px) {
+                    font-size: 11px;
+                }
+                
+                .status-indicator {
+                    width: 4px;
+                    height: 4px;
+                    background: #00ff47;
+                    border-radius: 50%;
+                    margin-right: 3px;
+                    box-shadow: 0 0 5px #00ff47;
+                    animation: status-pulse 2s infinite, energy-pulse 1.5s infinite;
+                    
+                    @media (min-width: 480px) {
+                        width: 5px;
+                        height: 5px;
+                        margin-right: 4px;
+                    }
+                    
+                    @media (min-width: 768px) {
+                        width: 6px;
+                        height: 6px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 70px;
+            margin-bottom: 10px;
+            background: rgba(10, 10, 15, 0.5);
+            border-radius: 5px;
+            overflow: hidden;
+            
+            @media (min-width: 480px) {
+                height: 100px;
+                margin-bottom: 12px;
+            }
+            
+            @media (min-width: 768px) {
+                height: 160px;
+                margin-bottom: 15px;
+            }
+            
+            .chart-grid {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                
+                .grid-line {
+                    position: absolute;
+                    width: 100%;
+                    height: 1px;
+                    background: rgba(255, 255, 255, 0.05);
+                    
+                    &:nth-child(1) { top: 20%; }
+                    &:nth-child(2) { top: 40%; }
+                    &:nth-child(3) { top: 60%; }
+                    &:nth-child(4) { top: 80%; }
+                    &:nth-child(5) { bottom: 0; }
+                }
+            }
+            
+            .chart-svg {
+                position: relative;
+                z-index: 1;
+            }
+            
+            .candlestick-animation {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 20px;
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-end;
+                padding: 0 3px;
+                
+                @media (min-width: 480px) {
+                    height: 25px;
+                    padding: 0 5px;
+                }
+                
+                @media (min-width: 768px) {
+                    height: 40px;
+                    padding: 0 10px;
+                }
+                
+                .candlestick {
+                    position: relative;
+                    width: 2px;
+                    
+                    @media (min-width: 480px) {
+                        width: 3px;
+                    }
+                    
+                    @media (min-width: 768px) {
+                        width: 6px;
+                    }
+                    
+                    .wick {
+                        position: absolute;
+                        width: 1px;
+                        background: rgba(255, 255, 255, 0.6);
+                        left: 50%;
+                        transform: translateX(-50%);
+                        height: 100%;
+                    }
+                    
+                    .body {
+                        position: absolute;
+                        width: 2px;
+                        background: linear-gradient(to bottom, #00BFFF, #1E90FF);
+                        bottom: 0;
+                        border-radius: 1px;
+                        
+                        @media (min-width: 480px) {
+                            width: 3px;
+                        }
+                        
+                        @media (min-width: 768px) {
+                            width: 6px;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .market-ticker {
+            overflow: hidden;
+            position: relative;
+            height: 18px;
+            
+            @media (min-width: 480px) {
+                height: 20px;
+            }
+            
+            @media (min-width: 768px) {
+                height: 24px;
+            }
+            
+            .ticker-scroll {
+                display: flex;
+                animation: ticker-scroll 30s linear infinite;
+                
+                .ticker-item {
+                    display: flex;
+                    align-items: center;
+                    margin-right: 10px;
+                    white-space: nowrap;
+                    
+                    @media (min-width: 480px) {
+                        margin-right: 15px;
+                    }
+                    
+                    @media (min-width: 768px) {
+                        margin-right: 25px;
+                    }
+                    
+                    .ticker-label {
+                        font-size: 8px;
+                        color: rgba(255, 255, 255, 0.7);
+                        margin-right: 3px;
+                        
+                        @media (min-width: 480px) {
+                            font-size: 9px;
+                            margin-right: 4px;
+                        }
+                        
+                        @media (min-width: 768px) {
+                            font-size: 11px;
+                            margin-right: 6px;
+                        }
+                    }
+                    
+                    .ticker-value {
+                        font-size: 9px;
+                        font-weight: 600;
+                        margin-right: 4px;
+                        color: #fff;
+                        
+                        @media (min-width: 480px) {
+                            font-size: 10px;
+                            margin-right: 5px;
+                        }
+                        
+                        @media (min-width: 768px) {
+                            font-size: 12px;
+                            margin-right: 8px;
+                        }
+                    }
+                    
+                    .ticker-change {
+                        font-size: 7px;
+                        
+                        @media (min-width: 480px) {
+                            font-size: 8px;
+                        }
+                        
+                        @media (min-width: 768px) {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Progress section */
+    .progress-section {
+        width: 100%;
+        margin-top: 12px;
+        z-index: 2;
+        
+        @media (min-width: 480px) {
+            margin-top: 15px;
+        }
+        
+        @media (min-width: 768px) {
+            margin-top: 25px;
+        }
+        
+        .progress-container {
+            position: relative;
+            
+            .progress-labels {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+                flex-direction: column;
+                
+                @media (min-width: 480px) {
+                    flex-direction: row;
+                    margin-bottom: 8px;
+                }
+                
+                .progress-text {
+                    font-size: 11px;
+                    font-weight: 600;
+                    color: #1E90FF;
+                    margin-bottom: 2px;
+                    
+                    @media (min-width: 480px) {
+                        font-size: 12px;
+                        margin-bottom: 0;
+                    }
+                    
+                    @media (min-width: 768px) {
+                        font-size: 14px;
+                    }
+                }
+                
+                .progress-message {
+                    font-size: 9px;
+                    color: rgba(255, 255, 255, 0.7);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 100%;
+                    
+                    @media (min-width: 480px) {
+                        font-size: 10px;
+                        max-width: 60%;
+                    }
+                    
+                    @media (min-width: 768px) {
+                        font-size: 12px;
+                        max-width: 65%;
+                        text-align: right;
+                    }
+                }
+            }
+            
+            .progress-track {
+                height: 3px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 2px;
+                overflow: hidden;
+                position: relative;
+                
+                @media (min-width: 480px) {
+                    height: 4px;
+                }
+                
+                @media (min-width: 768px) {
+                    height: 6px;
+                    border-radius: 3px;
+                }
+                
+                .progress-bar {
+                    height: 100%;
+                    background: linear-gradient(to right, #1E90FF, #00BFFF);
+                    border-radius: 2px;
+                    position: relative;
+                    box-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
+                    animation: energy-pulse 2s ease-in-out infinite;
+                    
+                    @media (min-width: 768px) {
+                        border-radius: 3px;
+                    }
+                    
+                    .progress-glow {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        width: 10px;
+                        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.7));
+                        animation: progress-glow 1.5s infinite;
+                        
+                        @media (min-width: 480px) {
+                            width: 12px;
+                        }
+                        
+                        @media (min-width: 768px) {
+                            width: 20px;
+                        }
+                    }
+                    
+                    .progress-pulse {
+                        position: absolute;
+                        top: -1px;
+                        right: 0;
+                        width: 5px;
+                        height: 5px;
+                        background: #fff;
+                        border-radius: 50%;
+                        box-shadow: 0 0 5px #fff;
+                        animation: energy-pulse 1s ease-in-out infinite;
+                        
+                        @media (min-width: 480px) {
+                            width: 6px;
+                            height: 6px;
+                        }
+                        
+                        @media (min-width: 768px) {
+                            width: 8px;
+                            height: 8px;
+                        }
+                    }
+                }
+            }
+            
+            .progress-markers {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 2px;
+                
+                @media (min-width: 480px) {
+                    margin-top: 3px;
+                }
+                
+                @media (min-width: 768px) {
+                    margin-top: 5px;
+                }
+                
+                .marker {
+                    width: 1px;
+                    height: 3px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 1px;
+                    
+                    @media (min-width: 480px) {
+                        height: 4px;
+                    }
+                    
+                    @media (min-width: 768px) {
+                        height: 6px;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Trading bots */
+    .trading-bots {
+        display: flex;
+        justify-content: center;
+        margin-top: 12px;
+        z-index: 2;
+        flex-wrap: wrap;
+        
+        @media (min-width: 480px) {
+            margin-top: 15px;
+        }
+        
+        @media (min-width: 768px) {
+            margin-top: 25px;
+            flex-wrap: nowrap;
+        }
+        
+        .bot-icon {
+            position: relative;
+            margin: 3px;
+            font-size: 14px;
+            filter: drop-shadow(0 0 5px rgba(30, 144, 255, 0.7));
+            animation: energy-pulse 3s ease-in-out infinite;
+            will-change: transform, opacity;
+            transform: translateZ(0);
+            
+            @media (min-width: 480px) {
+                margin: 5px;
+                font-size: 16px;
+            }
+            
+            @media (min-width: 768px) {
+                margin: 0 12px;
+                font-size: 20px;
+            }
+            
+            .bot-trail {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 16px;
+                height: 16px;
+                background: radial-gradient(circle, rgba(30, 144, 255, 0.5) 0%, transparent 70%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                animation: energy-pulse 2s ease-in-out infinite;
+                will-change: transform, opacity;
+                
+                @media (min-width: 480px) {
+                    width: 20px;
+                    height: 20px;
+                }
+                
+                @media (min-width: 768px) {
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+            
+            .bot-connection {
+                position: absolute;
+                bottom: -8px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 1px;
+                height: 8px;
+                background: linear-gradient(to bottom, rgba(30, 144, 255, 0.8), transparent);
+                animation: energy-pulse 1.5s ease-in-out infinite;
+                will-change: transform, opacity;
+                
+                @media (min-width: 480px) {
+                    bottom: -10px;
+                    height: 10px;
+                }
+                
+                @media (min-width: 768px) {
+                    bottom: -15px;
+                    height: 15px;
+                }
+            }
+        }
+    }
+
+    /* Status message */
+    .status-message {
+        margin-top: 12px;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        z-index: 2;
+        text-align: center;
+        flex-direction: column;
+        
+        @media (min-width: 480px) {
+            font-size: 11px;
+            flex-direction: row;
+            text-align: left;
+        }
+        
+        @media (min-width: 768px) {
+            margin-top: 20px;
+            font-size: 13px;
+        }
+        
+        .typing-indicator {
+            display: flex;
+            margin-right: 0;
+            margin-bottom: 5px;
+            
+            @media (min-width: 480px) {
+                margin-right: 6px;
+                margin-bottom: 0;
+            }
+            
+            span {
+                width: 2px;
+                height: 2px;
+                background: #1E90FF;
+                border-radius: 50%;
+                margin: 0 1px;
+                animation: typing 1.4s infinite both;
+                
+                @media (min-width: 480px) {
+                    width: 3px;
+                    height: 3px;
+                    margin: 0 1.5px;
+                }
+                
+                @media (min-width: 768px) {
+                    width: 4px;
+                    height: 4px;
+                    margin: 0 2px;
+                }
+                
+                &:nth-child(2) { animation-delay: 0.2s; }
+                &:nth-child(3) { animation-delay: 0.4s; }
+            }
+        }
+        
+        span {
+            background: linear-gradient(90deg, #1E90FF, #00BFFF, #1E90FF);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    /* Connection nodes */
+    .connection-nodes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        
+        .node {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(30, 144, 255, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(30, 144, 255, 0.7);
+            animation: energy-pulse 2s ease-in-out infinite;
+            will-change: transform, opacity;
+            transform: translateZ(0);
+            
+            @media (min-width: 768px) {
+                width: 6px;
+                height: 6px;
+                box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
+            }
+            
+            &:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+            &:nth-child(2) { top: 30%; right: 15%; animation-delay: 0.5s; }
+            &:nth-child(3) { bottom: 40%; left: 20%; animation-delay: 1s; }
+            &:nth-child(4) { bottom: 25%; right: 10%; animation-delay: 1.5s; }
+            &:nth-child(5) { top: 15%; right: 30%; animation-delay: 2s; }
+            &:nth-child(6) { bottom: 15%; left: 30%; animation-delay: 2.5s; }
+            &:nth-child(7) { top: 40%; left: 25%; animation-delay: 3s; }
+            &:nth-child(8) { bottom: 30%; right: 25%; animation-delay: 3.5s; }
+            
+            .node-pulse {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 12px;
+                height: 12px;
+                border: 1px solid rgba(30, 144, 255, 0.5);
+                border-radius: 50%;
+                animation: node-pulse 2s infinite;
+                will-change: transform, opacity;
+                
+                @media (min-width: 768px) {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+    }
+}
+
+/* Animations */
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes grid-pulse {
+    0% { opacity: 0.15; }
+    50% { opacity: 0.25; }
+    100% { opacity: 0.15; }
+}
+
+@keyframes grid-overlay-shift {
+    0% { background: radial-gradient(circle at 20% 20%, transparent 30%, #0a0a0f 80%); }
+    50% { background: radial-gradient(circle at 80% 80%, transparent 30%, #0a0a0f 80%); }
+    100% { background: radial-gradient(circle at 20% 20%, transparent 30%, #0a0a0f 80%); }
+}
+
+@keyframes status-pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes data-point-float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(180deg); }
+    100% { transform: translateY(0px) rotate(360deg); }
+}
+
+@keyframes holographic-shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes matrix-rain {
+    0% { transform: translateY(-100vh); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes energy-pulse {
+    0% { box-shadow: 0 0 5px rgba(30, 144, 255, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(30, 144, 255, 0.8), 0 0 30px rgba(0, 191, 255, 0.4); }
+    100% { box-shadow: 0 0 5px rgba(30, 144, 255, 0.5); }
+}
+
+@keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes progress-glow {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes typing {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0.8); opacity: 0.5; }
+}
+
+@keyframes node-pulse {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+}
+
+/* Brand Glow Animation */
+@keyframes brand-glow-pulse {
+    0%, 100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+/* Extra small devices (phones, 320px and down) */
+@media (max-width: 320px) {
+    .global-loading {
+        padding: 8px;
+        
+        .logo-container {
+            .logo {
+                width: 50px;
+            }
+            
+            .logo-glow {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        .deriv-branding {
+            gap: 6px;
+            margin-bottom: 15px;
+
+            .powered-by,
+            .partnership {
+                padding: 6px 10px;
+                gap: 4px;
+
+                .brand-text {
+                    font-size: 9px;
+                }
+
+                .deriv-name {
+                    font-size: 10px;
+                }
+            }
+        }
+        
+        .trading-terminal {
+            padding: 8px;
+            
+            .terminal-header {
+                flex-direction: column;
+                align-items: flex-start;
+                
+                .terminal-status {
+                    margin-top: 3px;
+                }
+            }
+            
+            .chart-container {
+                height: 60px;
+            }
+            
+            .market-ticker {
+                .ticker-scroll {
+                    .ticker-item {
+                        margin-right: 8px;
+                        
+                        .ticker-label {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .trading-bots {
+            .bot-icon {
+                margin: 2px;
+                font-size: 12px;
+            }
+        }
+        
+        .status-message {
+            font-size: 9px;
+        }
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (min-width: 600px) {
+    .global-loading {
+        padding: 15px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768px) {
+    .global-loading {
+        padding: 20px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) {
+    .global-loading {
+        padding: 25px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .global-loading {
+        padding: 30px;
+    }
+}

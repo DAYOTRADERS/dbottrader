@@ -1,0 +1,94 @@
+.traders-hub-logged-out {
+    max-width: 128rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    margin: auto;
+    padding: 4rem;
+
+    @include mobile-or-tablet-screen {
+        max-width: 60rem;
+        padding: 2rem;
+        width: 100%;
+    }
+
+    &__eu-user {
+        padding-bottom: 7rem;
+
+        @include mobile-or-tablet-screen {
+            min-height: 650px;
+            padding-bottom: 11rem;
+        }
+    }
+
+    &__mobile {
+        overflow: scroll !important;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    
+    // Style for FINEST ANALYSIS text
+    .dc-text {
+        &:has(a) {
+            font-family: 'Comic Sans MS', 'Marker Felt', 'Chalkduster', cursive;
+            font-size: 1.5rem;
+            font-weight: 900;
+            font-style: normal;
+            color: #0000FF;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 
+                3px 3px 0px #87CEEB,
+                6px 6px 0px #4169E1,
+                9px 9px 0px #000080,
+                12px 12px 0px #191970;
+            filter: drop-shadow(0 0 12px rgba(0, 0, 255, 0.8));
+            position: relative;
+            transform: perspective(500px) rotateX(10deg);
+            animation: retroBounceLoggedOut 3s ease-in-out infinite;
+            
+            // Retro bubbly effect
+            &::before {
+                content: attr(data-text);
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: #87CEEB;
+                z-index: -1;
+                transform: translate(3px, 3px);
+            }
+            
+            &::after {
+                content: attr(data-text);
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: #4169E1;
+                z-index: -2;
+                transform: translate(6px, 6px);
+            }
+            
+            a {
+                color: #0000FF;
+                text-decoration: none;
+                text-shadow: 
+                    3px 3px 0px #87CEEB,
+                    6px 6px 0px #4169E1,
+                    9px 9px 0px #000080,
+                    12px 12px 0px #191970;
+                filter: drop-shadow(0 0 12px rgba(0, 0, 255, 0.8));
+            }
+        }
+    }
+    
+    @keyframes retroBounceLoggedOut {
+        0%, 100% {
+            transform: perspective(500px) rotateX(10deg) scale(1);
+        }
+        50% {
+            transform: perspective(500px) rotateX(10deg) scale(1.05);
+        }
+    }
+}

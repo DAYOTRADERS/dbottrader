@@ -1,0 +1,22 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./dist",
+        "baseUrl": "./",
+        "paths": {
+            "Assets/*": ["src/Assets/*"],
+            "Components/*": ["src/Components/*"],
+            "Containers/*": ["src/Containers/*"],
+            "Constants/*": ["src/Constants/*"],
+            "Configs/*": ["src/Configs/*"],
+            "Helpers/*": ["src/Helpers/*"],
+            "Modules/*": ["src/Modules/*"],
+            "Sections/*": ["src/Sections/*"],
+            "Stores/*": ["src/Stores/*"],
+            "Types": ["src/Types"],
+            "@deriv/*": ["../*/src"]
+        }
+    },
+    "include": ["src", "./global.d.ts"],
+    "exclude": ["**/*.spec.*", "dist"]
+}

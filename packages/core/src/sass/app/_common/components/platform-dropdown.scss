@@ -1,0 +1,159 @@
+/* @define platform-dropdown; weak */
+.platform-dropdown {
+    z-index: 7;
+    background-color: var(--overlay-outside-dialog);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+
+    @include mobile-or-tablet-screen {
+        position: absolute;
+
+        .platform-dropdown__list {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 295px;
+            padding-right: 1.6rem;
+            background-color: var(--general-main-2);
+            overflow-x: hidden;
+            overflow-y: auto;
+            flex-direction: column;
+            flex-wrap: nowrap;
+
+            &-platform {
+                width: calc(100% - 1.6rem);
+                margin: 1.4rem 1.6rem;
+                padding: 1.4rem 1.6rem;
+            }
+        }
+    }
+
+    &--enter-done {
+        opacity: 1;
+
+        .platform-dropdown__list {
+            transform: translateY(48px);
+        }
+    }
+
+    &__cta {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2rem;
+        cursor: pointer;
+
+        &--link {
+            color: var(--text-loss-danger);
+        }
+
+        @include mobile-or-tablet-screen {
+            position: relative;
+            padding: 1rem 0 0 1.3rem;
+            text-align: center;
+        }
+    }
+
+    &__list {
+        background-color: var(--general-main-1);
+        width: 100%;
+        position: fixed;
+        top: 0;
+        transform: translateY(0px);
+        transition: transform 0.25s ease;
+        display: flex;
+        flex-flow: wrap;
+        padding-bottom: 3rem;
+
+        &-platform {
+            position: relative;
+            display: inline-flex;
+            background-color: transparent;
+            color: var(--text-general);
+            text-decoration: none;
+            margin: 2.4rem 1.6rem;
+            padding: 2.4rem 1.6rem;
+            width: 320px;
+            border-radius: 0.8rem;
+
+            &-title {
+                font-size: 1.6rem;
+                font-weight: bold;
+                line-height: 2.4rem;
+            }
+            &-description {
+                font-size: 1.4rem;
+                line-height: 2rem;
+                margin-top: 0.8rem;
+            }
+            &-background {
+                opacity: 0;
+                transition: opacity 0.25s ease;
+                background-color: var(--general-hover);
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: -1;
+                border-radius: inherit;
+            }
+            /* postcss-bem-linter: ignore */
+            &.active {
+                border: solid 2px var(--border-active);
+            }
+            &:not(.active):hover {
+                background: var(--state-hover);
+            }
+            @include mobile-or-tablet-screen {
+                width: 302px;
+            }
+        }
+    }
+
+    // Custom platform icons styling with golden theme
+    &__custom-icon {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.8rem;
+        transition: transform 0.3s ease;
+
+        svg {
+            filter: drop-shadow(0 3px 10px rgba(255, 215, 0, 0.4));
+        }
+    }
+
+    &__list-platform:hover &__custom-icon {
+        transform: translateX(5px) scale(1.03);
+
+        svg {
+            filter: drop-shadow(0 5px 15px rgba(255, 215, 0, 0.6))
+                    drop-shadow(0 0 20px rgba(255, 165, 0, 0.4));
+        }
+    }
+
+    &__list-platform.active &__custom-icon {
+        svg {
+            filter: drop-shadow(0 5px 18px rgba(255, 215, 0, 0.7))
+                    drop-shadow(0 0 25px rgba(255, 165, 0, 0.5));
+            animation: customIconGlowGold 2s ease-in-out infinite;
+        }
+    }
+}
+
+@keyframes customIconGlowGold {
+    0%, 100% {
+        filter: drop-shadow(0 5px 18px rgba(255, 215, 0, 0.7))
+                drop-shadow(0 0 25px rgba(255, 165, 0, 0.5));
+    }
+    50% {
+        filter: drop-shadow(0 7px 22px rgba(255, 215, 0, 0.9))
+                drop-shadow(0 0 35px rgba(255, 165, 0, 0.7))
+                drop-shadow(0 0 50px rgba(255, 107, 107, 0.3));
+    }
+}

@@ -1,0 +1,267 @@
+.platform-switcher {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem 0.4rem; // minimal touch to keep spacing without a container look
+    transition: color 0.25s ease, transform 0.2s ease;
+    cursor: pointer;
+    background: transparent; // no container
+    border-radius: 0; // remove pill look
+    box-shadow: none;
+    border: none;
+    width: auto;
+    max-width: fit-content;
+    margin: 0 0.8rem;
+    position: relative;
+    overflow: hidden;
+
+    // Animated underline (no container)
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0.2rem;
+        right: 0.2rem;
+        bottom: -2px;
+        height: 2px;
+        background: linear-gradient(90deg, #60a5fa, #3b82f6, #1d4ed8);
+        background-size: 200% 100%;
+        border-radius: 2px;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.25s ease;
+        pointer-events: none;
+    }
+
+    // Rotating thin border track effect without a container
+    &::before {
+        content: '';
+        position: absolute;
+        inset: -6px; // create room for the orbiting track
+        border-radius: 10px;
+        background: conic-gradient(
+            from 0deg,
+            rgba(96, 165, 250, 0.0) 0deg,
+            rgba(96, 165, 250, 0.0) 260deg,
+            rgba(96, 165, 250, 0.9) 300deg,
+            rgba(59, 130, 246, 0.9) 330deg,
+            rgba(96, 165, 250, 0.0) 360deg
+        );
+        filter: blur(0.3px);
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        padding: 6px; // makes the ring thin
+        pointer-events: none;
+        transform: rotate(0deg);
+        animation: orbitTrack 6s linear infinite;
+    }
+
+    // Force all children to be visible
+    * {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    &:not(&--is-mobile):hover {
+        transform: translateY(-1px);
+        filter: drop-shadow(0 4px 10px rgba(59, 130, 246, 0.35));
+    }
+
+    &:hover::after {
+        transform: scaleX(1);
+    }
+    &:hover::before { animation-duration: 3s; }
+
+    & svg:first-child,
+    p,
+    h1 {
+        margin: 0;
+    }
+    & svg:last-child {
+        margin: 0 0 0 0.5rem;
+    }
+    &__label {
+        margin-left: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        color: #eaf2ff;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        white-space: nowrap;
+        padding: 0.1rem 0.2rem; // tiny padding only around text
+        text-align: center;
+    }
+    &__arrow {
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: rotate(0deg);
+    }
+    &__arrow .color1-fill {
+        fill: var(--text-general);
+    }
+    
+    &__arrow-emoji {
+        font-size: 1.3rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: rotate(0deg) scale(1);
+        display: inline-block;
+        filter: drop-shadow(0 3px 6px rgba(59, 130, 246, 0.4));
+        animation: arrowFloat 3s ease-in-out infinite;
+    }
+    &__preloader {
+        margin-top: 4px;
+        align-self: center;
+        width: 146px;
+
+        &--is-mobile {
+            width: 162px;
+        }
+    }
+    &--active &__arrow {
+        transform: rotate(180deg);
+    }
+    
+    &--active &__arrow-emoji {
+        transform: rotate(180deg) scale(1.2);
+        filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.6));
+    }
+
+    @include mobile {
+        width: auto;
+        max-width: fit-content;
+        height: auto;
+        justify-content: center;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+        background: transparent;
+        border-radius: 0;
+        padding: 0.4rem 0.6rem;
+        margin: 0.4rem auto 0.2rem;
+
+        // Tap ripple without container
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 4px;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(59, 130, 246, 0.25), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+        &:active::before { opacity: 1; }
+    }
+
+    // Thin black border to improve visibility on all screens
+    border: 1px solid rgba(0, 0, 0, 0.15);
+
+    // Enhanced styling for custom platform icons - always visible
+    &__icon {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 1 !important; // Force icons to always be visible
+        visibility: visible !important; // Force icons to always be visible
+        display: inline-flex !important;
+        align-items: center;
+        flex-shrink: 0;
+        
+        // Custom icons get special treatment with blue glow
+        &.custom-trader-icon,
+        &.custom-bot-icon {
+            filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.4))
+                    drop-shadow(0 0 20px rgba(99, 102, 241, 0.3));
+        }
+
+        // Ensure SVG and all its children are always visible
+        svg,
+        svg * {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+    }
+
+    &:hover &__icon {
+        &.custom-trader-icon,
+        &.custom-bot-icon {
+            transform: translateY(-3px) scale(1.08);
+            filter: drop-shadow(0 8px 20px rgba(59, 130, 246, 0.6))
+                    drop-shadow(0 0 30px rgba(99, 102, 241, 0.5))
+                    drop-shadow(0 0 40px rgba(147, 197, 253, 0.3));
+        }
+    }
+
+    &--active &__icon {
+        &.custom-trader-icon,
+        &.custom-bot-icon {
+            animation: iconPulseBlue 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes orbitTrack {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes arrowFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-2px) scale(1.05);
+    }
+}
+
+@keyframes iconPulseBlue {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.4))
+                drop-shadow(0 0 20px rgba(99, 102, 241, 0.3));
+    }
+    50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 8px 24px rgba(59, 130, 246, 0.7))
+                drop-shadow(0 0 35px rgba(99, 102, 241, 0.6))
+                drop-shadow(0 0 50px rgba(147, 197, 253, 0.4));
+    }
+}
+
+@keyframes iconBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.05);
+    }
+    60% {
+        transform: scale(0.98);
+    }
+}
+
+@keyframes iconBounceGold {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 3px 10px rgba(255, 215, 0, 0.5))
+                drop-shadow(0 0 15px rgba(255, 165, 0, 0.3));
+    }
+    50% {
+        transform: scale(1.08);
+        filter: drop-shadow(0 6px 20px rgba(255, 215, 0, 0.8))
+                drop-shadow(0 0 30px rgba(255, 165, 0, 0.6))
+                drop-shadow(0 0 45px rgba(255, 140, 0, 0.4));
+    }
+}
+
+@keyframes arrowBounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(3px) scale(1.1);
+    }
+}

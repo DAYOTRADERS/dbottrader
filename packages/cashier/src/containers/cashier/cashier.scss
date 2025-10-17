@@ -1,0 +1,276 @@
+/** @define cashier; weak */
+.cashier {
+    &__counter {
+        position: absolute;
+        top: 0.4rem;
+        inset-inline-end: -1.5rem;
+    }
+    &__content {
+        width: 100%;
+    }
+    &__wrapper {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &,
+        &--align-left {
+            color: var(--text-general);
+            width: 100%;
+            height: 100%;
+            line-height: 1.43;
+            @include mobile-or-tablet-screen {
+                height: inherit;
+            }
+
+            .inline-icon .color1-fill {
+                fill: var(--text-general);
+            }
+        }
+        &--align-left {
+            text-align: left;
+        }
+        &--align-center {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &--responsive {
+            @include mobile-screen {
+                width: 100vw;
+            }
+
+            @include tablet-screen {
+                width: 60rem;
+            }
+
+            @include mobile-or-tablet-screen {
+                .dc-collapsible {
+                    position: relative;
+                    background-color: var(--general-section-1);
+                    margin-bottom: 0.8rem;
+                    transform: none;
+                    width: 100%;
+                    z-index: 1;
+                }
+                .cashier__wrapper {
+                    &-error {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        flex-direction: column;
+                        padding-top: 2.4rem;
+                    }
+                }
+                .barspinner {
+                    margin-top: 6rem;
+                }
+            }
+        }
+        .withdraw__input {
+            width: fit-content;
+            min-width: 36rem;
+            @include mobile-or-tablet-screen {
+                width: 100%;
+                min-width: auto;
+                margin-bottom: 1.3rem !important;
+            }
+        }
+    }
+    &__loader {
+        font-size: 1rem;
+    }
+    &__header {
+        @include mobile-or-tablet-screen {
+            font-size: 1.4rem;
+        }
+    }
+    &__form {
+        &-submit {
+            text-align: right;
+            margin-top: 3.2rem;
+        }
+        &-submit-button {
+            margin: 3.9rem 0 2.4rem 2.4rem;
+        }
+
+        @include mobile-or-tablet-screen {
+            &-submit {
+                margin: 1.6rem 0;
+                flex-flow: column;
+                height: unset;
+                margin-bottom: 1.6rem;
+            }
+            &-submit-button {
+                margin: 0;
+                width: 100%;
+            }
+        }
+    }
+    &__input {
+        display: inline-block !important;
+        margin-bottom: 0 !important;
+        @include mobile-screen {
+            margin-bottom: 3.2rem !important;
+        }
+    }
+    &__drop-down,
+    &__drop-down-wrapper .cashier__drop-down {
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+
+            .dc-select-native__placeholder {
+                background-color: var(--general-main-1);
+            }
+        }
+        &-display {
+            justify-content: left;
+            min-height: 4rem;
+            min-width: 28.3rem;
+            height: auto;
+            @include mobile-or-tablet-screen {
+                min-height: auto;
+                min-width: calc(100% - 4rem);
+                display: flex;
+                align-items: center;
+            }
+
+            &-span {
+                font-size: 1.4rem;
+                text-align: left;
+                padding: 0.9rem 3.6rem 0.9rem 1.2rem;
+                text-transform: none;
+                line-height: 1.43;
+                display: flex;
+                align-items: center;
+            }
+        }
+        &-items,
+        &-label {
+            justify-content: start;
+        }
+        &-items {
+            svg {
+                width: 11px;
+                height: 11px;
+            }
+        }
+        &-label {
+            margin: 0 1.6rem;
+        }
+    }
+    &__transferred {
+        &-amount {
+            margin-top: 2rem;
+            margin-bottom: 2.4rem;
+
+            & .symbols {
+                padding-left: 0.8rem;
+            }
+        }
+        &-details {
+            margin-left: 0.8rem;
+            margin-right: 0.8rem;
+            vertical-align: super;
+            max-width: 20rem;
+            display: flex;
+            flex-direction: column;
+
+            &-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        &-icon {
+            @extend %inline-icon;
+            transform: scale(-1, 1);
+            vertical-align: middle;
+            margin: 0 1.6rem;
+        }
+    }
+    &__paragraph {
+        align-self: center;
+    }
+    &__text {
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        @include mobile-or-tablet-screen {
+            max-width: 100%;
+            min-width: unset;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+    }
+    &__tab-header-note {
+        max-width: 25.6rem;
+    }
+    &__success {
+        text-align: center;
+        background-color: var(--general-main-1);
+        padding: 2.4rem;
+        width: 50.4rem;
+        margin: 0 auto 2rem;
+    }
+    &__done-button {
+        width: 18.9rem;
+        margin-left: 0.8rem;
+        white-space: normal;
+    }
+    &__no-balance {
+        &-icon {
+            margin-bottom: 1.6rem;
+
+            + .dc-text {
+                margin-bottom: 0.8rem;
+            }
+        }
+        &-button {
+            margin: 3.2rem auto;
+        }
+        @include mobile-or-tablet-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+            &-icon {
+                margin-top: 3.2rem;
+            }
+        }
+        @include mobile-screen {
+            &-button {
+                width: calc(100% - 3.2rem);
+            }
+        }
+    }
+    &__page-wrapper {
+        &-button {
+            min-width: 25.6rem;
+            padding: 0.6rem 0.8rem;
+        }
+    }
+
+    .dc-vertical-tab__tab--floating {
+        min-width: 25.6rem;
+    }
+
+    .dc-vertical-tab__content-side-note {
+        position: sticky;
+        top: calc(2.4rem + 4.1rem);
+        height: fit-content;
+    }
+}
+
+// Able to scroll the page container (app-contents) until 926px (MobileWrapper) if it should be scrollable
+@media (max-width: 926px) {
+    .app-contents--is-mobile,
+    .app-contents--is-scrollable {
+        overflow-y: auto;
+    }
+}

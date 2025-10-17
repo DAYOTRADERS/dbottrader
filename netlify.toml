@@ -1,0 +1,9 @@
+[build]
+  command = "npm install && npm run bootstrap && npm run build:one components && npm run build:all"
+  publish = "packages/core/dist"
+  environment = { NODE_VERSION = "16.16.0", CI = "false", NODE_OPTIONS = "--max_old_space_size=4096" }
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

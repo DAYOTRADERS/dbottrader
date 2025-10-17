@@ -1,0 +1,38 @@
+.wallets-mt5-trade-details-item {
+    display: flex;
+    align-items: center;
+    height: 3.2rem;
+    justify-content: space-between;
+    background-color: #f2f3f4;
+    padding: 0.5rem 0.8rem;
+
+    &--info {
+        padding: 0.4rem 0.8rem;
+        height: fit-content;
+        border-radius: 0.4rem;
+
+        @include mobile-or-tablet-screen {
+            padding: 0.8rem;
+        }
+    }
+
+    &__values {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+        & .wallets-clipboard {
+            border: none;
+            border-radius: none;
+        }
+
+        &--mono-text {
+            font-family: 'Courier', serif;
+        }
+
+        &--forgot-link {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}

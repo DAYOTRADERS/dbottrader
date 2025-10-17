@@ -1,0 +1,648 @@
+/** @define header; weak */
+.header {
+    position: fixed;
+    z-index: 99;
+    box-sizing: border-box;
+    height: $HEADER_HEIGHT;
+    width: 100%;
+    top: 0;
+    transition: opacity 0.3s;
+    backface-visibility: hidden;
+    background-color: var(--general-main-1);
+    border-bottom: 1px solid var(--general-section-1);
+
+    &--is-disabled:after {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    &--is-hidden {
+        display: none;
+    }
+
+    &--tradershub_os {
+        &_desktop {
+            display: none;
+        }
+        &_mobile {
+            display: block;
+        }
+    }
+
+    // Add extra space under the mobile drawer subheader content so the border below sits lower
+    .dc-mobile-drawer__subheader:not(.dc-mobile-drawer__subheader--hidden) {
+        padding-bottom: 1.6rem;
+    }
+
+    // Container to group socials and platform switcher
+    &__left-stack {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+
+        // On small screens, hide (mobile will use bar menu variants)
+        @include mobile-or-tablet-screen {
+            display: none;
+        }
+    }
+
+    // Mobile drawer container to stack platform switcher and icons vertically
+    &__menu-mobile-stack {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        padding: 0.4rem 0;
+        margin-top: 12px;
+
+        // Enhance the social icons inside the mobile drawer stack
+        .header__socials {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.4rem 0.2rem;
+
+            a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 36px;
+                height: 36px;
+                border-radius: 10px;
+                background: var(--overlay-outside-dialog);
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+                transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+
+                &:hover {
+                    transform: translateY(-1px);
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+                    background: var(--general-hover);
+                }
+            }
+        }
+    }
+    &__menu-mobile-whatsapp {
+        flex-shrink: 0;
+        
+        &-link {
+            text-decoration: none;
+            color: var(--text-general);
+            padding-left: 1.6rem;
+        }
+    }
+
+    &__menu-mobile-traders-hub {
+        padding-top: 2rem;
+    }
+
+    &__menu-mobile-livechat {
+        border-bottom: 1px solid var(--general-section-2);
+        flex-shrink: 0;
+    }
+    
+    &__menu-mobile-logout {
+        margin-top: auto; // Push logout to bottom while keeping space for other items
+        border-top: 1px solid var(--general-section-2);
+        flex-shrink: 0;
+    }
+
+    &__menu-mobile-body-wrapper {
+        position: relative;
+        height: calc(100% - 4rem);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden; // Prevent wrapper overflow
+        
+        // Ensure the drawer body can scroll properly
+        .dc-mobile-drawer__body {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            min-height: 0; // Important for flex children with overflow
+        }
+    }
+    &__menu-mobile-platform-switcher {
+        position: absolute;
+        height: 100%;
+        top: 2.4rem;
+        left: 0;
+    }
+    &__menu-mobile-theme {
+        border-bottom: 1px solid var(--general-section-2);
+        padding-right: 1.6rem;
+        flex-shrink: 0; // Prevent this item from being compressed
+        min-height: 5.6rem; // Ensure minimum height
+
+        .header__menu-mobile-link {
+            gap: 0.8rem; // Add gap between elements for better spacing
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        // Ensure toggle switch doesn't get cut off
+        .dc-toggle-switch {
+            flex-shrink: 0;
+            margin-left: auto;
+        }
+
+        &--responsible-trading {
+            border-bottom: 1px solid var(--general-section-2);
+        }
+
+        &--trader-hub {
+            border-bottom: none;
+        }
+    }
+
+    &__menu--separator {
+        border-right: 1px solid var(--general-section-1);
+        width: 2rem;
+        height: 3.2rem;
+        margin-right: 1rem;
+    }
+    &__menu--dtrader--separator {
+        border-right: 1px solid var(--general-section-1);
+        margin-top: 0.8rem;
+        height: 3.2rem;
+
+        &--account {
+            margin-right: 1rem;
+        }
+    }
+
+    &__menu__redirect {
+        display: flex;
+
+        &--link {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            text-decoration: none;
+        }
+    }
+
+    &__redirect--dtratder {
+        display: flex;
+        margin-left: 50rem;
+
+        &--link {
+            display: flex;
+            align-items: center;
+            margin-right: 5rem;
+            padding: 0.5rem;
+            text-decoration: none;
+        }
+    }
+
+    &__menu-mobile-link {
+        text-decoration: none;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        min-width: 0; // Prevent flex item from overflowing
+
+        &--active {
+            .header__menu-mobile-link-text {
+                font-weight: bold;
+                color: var(--text-prominent);
+            }
+        }
+        &-text {
+            font-size: 1.4rem;
+            color: var(--text-general);
+            flex: 1;
+            min-width: 0; // Prevent text from pushing other elements
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-right: 1rem; // Add spacing before toggle
+        }
+        &-icon {
+            margin-right: 16px;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0; // Prevent icon from shrinking
+        }
+        &-flag-icon {
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        &-suffix-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: auto;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+    }
+    &__menu-items {
+        display: flex;
+        position: relative;
+        box-sizing: border-box;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    &__navbar-icons {
+        cursor: pointer;
+        padding: 0.8em 1.6em;
+        align-self: center;
+        height: 100%;
+
+        &--notify-toggle {
+            order: 2;
+            order: 2;
+            padding: 0.5em 1em;
+            width: 2em;
+        }
+    }
+
+    &__menu-divider {
+        margin-left: 20rem;
+    }
+
+    &__menu-left {
+        justify-content: flex-start;
+        order: -1;
+        display: inline-flex;
+        flex: 1;
+        height: #{$HEADER_HEIGHT - 1px};
+
+        @include desktop {
+            align-items: center;
+        }
+
+        &-extensions {
+            display: flex;
+            align-items: center;
+        }
+
+        &-logo {
+            align-self: center;
+            margin: 0 1.2rem;
+            cursor: pointer;
+        }
+    }
+    &__menu-right {
+        justify-content: flex-end;
+        order: 1;
+        display: inline-flex;
+        height: #{$HEADER_HEIGHT - 1px};
+        position: relative;
+
+        &--hidden {
+            display: none;
+        }
+        @include mobile-or-tablet-screen {
+            .acc-info__separator {
+                display: none;
+            }
+            .notifications-toggle {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__menu--back-to-old-ui--dtrader {
+        padding: 0 1.5rem 2.5rem;
+        width: 110%;
+    }
+
+    &__menu--back-to-ui {
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+        border-radius: 1rem;
+
+        &--dark {
+            background-color: var(--general-main-1);
+            display: flex;
+            width: 90%;
+            justify-content: space-between;
+            border-radius: 1rem;
+        }
+    }
+
+    &__menu--traders-hub {
+        padding: 1.5rem;
+        &-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &-text {
+            width: 13rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        &-beta-icon {
+            margin: 0 4rem 0 1rem;
+        }
+    }
+
+    &__menu--explore-traders-hub {
+        border-radius: 1rem;
+
+        &--dark {
+            background-color: var(--general-main-1);
+        }
+        .dc-btn__text {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+
+    &__menu--exit-traders-hub {
+        border-radius: 1rem;
+
+        &--dark {
+            background-color: var(--general-main-1);
+        }
+        .dc-btn__text {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+
+    &__menu--exit-traders-hub-beta-icon {
+        margin: 0 4rem 0 1rem;
+    }
+
+    &__menu--back-to-ui-text {
+        align-items: flex-start;
+
+        &--dark {
+            color: var(--text-prominent);
+            align-items: flex-start;
+        }
+    }
+
+    &__menu-mobile-right-arrow {
+        align-items: flex-end;
+        display: inline-flex;
+    }
+
+    &__menu-toggle {
+        align-self: center;
+        display: flex;
+    }
+    &__menu-links {
+        height: 100%;
+        align-self: center;
+
+        @include mobile-or-tablet-screen {
+            display: none;
+        }
+    }
+    &__menu-link {
+        height: 100%;
+        padding: 0 1.6em;
+        text-decoration: none;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-evenly;
+        transition: background-color 0.3s;
+        cursor: pointer;
+
+        &-text {
+            @include typeface(--title-left-normal-black);
+            padding: 0.5em 0;
+            position: relative;
+            color: var(--text-general);
+            @include colorIcon(var(--text-general), none, var(--text-general));
+
+            &:before {
+                position: absolute;
+                top: 1.4em;
+                left: 1.2em;
+            }
+            &:after {
+                display: block;
+                content: attr(title);
+                font-weight: 400;
+                height: 0;
+                overflow: hidden;
+                visibility: hidden;
+            }
+        }
+        &:hover:not(&--active) {
+            background-color: var(--general-hover);
+        }
+        &--active {
+            & > .header__menu-link-text[title] {
+                font-weight: bold;
+                color: var(--text-prominent);
+
+                &:after {
+                    color: var(--text-prominent);
+                }
+            }
+            .header__icon {
+                @extend %inline-icon-active;
+            }
+        }
+    }
+    &__logo {
+        background-color: var(--brand-secondary);
+        border-radius: 10px;
+        color: var(--text-colored-background);
+        display: inline-block;
+        font-size: 1.4rem;
+        font-weight: normal;
+        height: 20px;
+        line-height: 1.43;
+        text-align: center;
+        width: 50px;
+        margin-left: 8px;
+    }
+    &__mobile-drawer {
+        &-icon {
+            width: 16px;
+            height: 16px;
+            transform: scale(1.3); // TODO: fix the icons sizes and remove this
+        }
+        &-toggle {
+            padding: 0 1.2rem;
+            border-right: 1px solid var(--general-section-1);
+            display: flex;
+            align-items: center;
+            height: inherit;
+        }
+    }
+    &__title {
+        display: inline-block;
+        font-weight: bold;
+        color: var(--text-prominent);
+    }
+    &__icon {
+        margin-right: 0.8rem;
+        vertical-align: middle;
+    }
+    @include mobile-or-tablet-screen {
+        height: $MOBILE_HEADER_HEIGHT;
+
+        .header__menu-left,
+        .header__menu-right {
+            height: #{$MOBILE_HEADER_HEIGHT - 1px};
+        }
+
+        // Fix for theme toggle on mobile
+        .header__menu-mobile-theme {
+            .header__menu-mobile-link {
+                width: 100%;
+                max-width: 100%;
+                
+                .header__menu-mobile-link-text {
+                    max-width: calc(100% - 120px); // Reserve space for toggle switch
+                    flex: 1;
+                }
+            }
+        }
+        
+        // Ensure all menu items are visible when scrolling
+        .header__menu-mobile-whatsapp,
+        .header__menu-mobile-livechat,
+        .header__menu-mobile-logout,
+        .header__menu-mobile-theme {
+            display: flex;
+            flex-shrink: 0;
+        }
+    }
+
+    &__divider {
+        width: 0.1rem;
+        height: 3rem;
+        margin-left: 0.8rem;
+        background: var(--general-section-2);
+
+        @include mobile {
+            height: 2.4rem;
+        }
+    }
+}
+
+.header-v2 {
+    height: $MOBILE_HEADER_DTRADER_V2_HEIGHT;
+    border-bottom: none;
+
+    &--with-banner {
+        height: $MOBILE_HEADER_DTRADER_V2_WITH_BANNER_HEIGHT;
+    }
+
+    &__acc-info {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        &__name {
+            display: flex;
+            align-items: center;
+            gap: var(--core-spacing-200);
+        }
+
+        &__balance:is(h5) {
+            color: var(--core-color-opacity-black-600);
+        }
+
+        &__container {
+            height: $MOBILE_HEADER_DTRADER_V2_HEIGHT;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-inline: var(--core-spacing-800);
+
+            .notifications {
+                &__icon {
+                    fill: var(--core-color-opacity-black-600);
+                }
+                &__wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: var(--core-size-1800);
+                    height: var(--core-size-1800);
+                }
+            }
+        }
+
+        &__wrapper {
+            all: unset;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--core-spacing-400);
+        }
+
+        &__select-arrow {
+            pointer-events: none;
+            transform: rotate(0);
+            transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+            &--up {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    &__loader {
+        display: flex;
+        justify-content: space-between;
+        padding: var(--core-spacing-300) var(--semantic-spacing-general-md);
+    }
+}
+
+.contract-details-header-v2 {
+    display: flex;
+    justify-content: center;
+    height: var(--core-spacing-2000);
+    padding: var(--core-spacing-400) var(--core-spacing-50);
+    .arrow {
+        position: absolute;
+        cursor: pointer;
+        left: var(--core-size-1200);
+    }
+}
+
+// FINEST ANALYSIS styling for navigation menu
+.dc-menu-link {
+    padding: 0.4rem 0.8rem !important;
+    transition: all 0.2s ease !important;
+    
+    &__text {
+        font-family: 'Comic Sans MS', 'Marker Felt', 'Chalkduster', cursive !important;
+        font-size: 1.3rem !important;
+        font-weight: 900 !important;
+        font-style: normal !important;
+        color: #0000FF !important;
+        letter-spacing: 1.2px !important;
+        text-transform: uppercase !important;
+        text-shadow: 0 2px 0 #87CEEB, 0 4px 6px rgba(0, 0, 0, 0.15) !important;
+        padding: 0.2rem 0.4rem !important;
+    }
+}
+
+// Social icons next to platform switcher (desktop)
+.header__socials {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-left: 0.6rem;
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.12);
+        transition: background 0.2s ease, transform 0.2s ease;
+
+        &:hover { background: rgba(0, 0, 0, 0.2); transform: translateY(-1px); }
+    }
+}

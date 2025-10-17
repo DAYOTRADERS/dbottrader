@@ -1,0 +1,92 @@
+.trade {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--semantic-color-slate-solid-surface-frame-mid);
+    padding: 0 var(--core-spacing-400) var(--core-spacing-400);
+    gap: var(--core-spacing-400);
+
+    &__trade-types {
+        position: relative;
+        width: 100vw;
+        inset-inline-start: calc(-1 * var(--core-spacing-400));
+        padding: var(--core-spacing-400) var(--core-spacing-800);
+        background-color: var(--semantic-color-slate-solid-surface-frame-low);
+        display: flex;
+        gap: var(--core-spacing-400);
+        overflow-x: auto;
+        min-height: var(--core-spacing-1600);
+        white-space: nowrap;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+        transition: left var(--core-motion-duration-300) ease-in;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        button {
+            background-color: transparent !important;
+
+            &.quill-chip[data-state='selected'] {
+                background-color: var(--component-chip-bg-selected) !important;
+            }
+        }
+
+        &-header {
+            margin: auto 0;
+        }
+    }
+    &__assets {
+        padding: 0 var(--core-spacing-800);
+
+        .dc-dropdown {
+            &__container {
+                width: 26rem;
+            }
+            &__display {
+                height: var(--core-spacing-2100);
+            }
+        }
+    }
+    &__chart {
+        direction: ltr;
+        border-top-left-radius: var(--core-borderRadius-400);
+        border-top-right-radius: var(--core-borderRadius-400);
+        overflow: hidden;
+        &--with-borderRadius {
+            border-bottom-left-radius: var(--core-borderRadius-400);
+            border-bottom-right-radius: var(--core-borderRadius-400);
+        }
+
+        .smartcharts {
+            position: relative;
+        }
+    }
+    &__parameter {
+        min-height: 7.2rem;
+        background-color: var(--semantic-color-slate-solid-surface-frame-low);
+
+        &:has(.trade-params__options__wrapper--horizontal:not(:only-child)) {
+            min-height: 10.4rem;
+        }
+
+        &--with-button {
+            min-height: 13.6rem;
+        }
+    }
+}
+
+.quill-action-sheet--portal--wrapper:has(.trade-types-dialog--is_editing) {
+    overflow-y: hidden;
+}
+.trade-types-dialog {
+    &__title {
+        margin: var(--core-spacing-1200) var(--core-spacing-50);
+    }
+    &__content {
+        padding-top: var(--core-spacing-50);
+    }
+    &--is_editing {
+        overflow: hidden;
+    }
+}

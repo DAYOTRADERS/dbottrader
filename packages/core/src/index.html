@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en" translate="no" dir="auto">
+    <head>
+        <!-- Set skeleton theme color properties -->
+        <style>
+            :root {
+                --logo-loading-color: rgba(0, 0, 0, 0.8);
+                --header-footer-bg-color: rgba(0, 0, 0, 0.04);
+                --content-bg-color: #fff;
+                --general-main-1: #ffffff;
+                --general-section-1: #f2f3f4;
+                --text-prominent: #333333;
+                font-size: 62.5%;
+            }
+
+            #platform_name:after {
+                content: var(--app-shell-platform-name);
+                margin-left: 8px;
+            }
+
+            .deriv-app > .header__loading {
+                background-color: var(--general-main-1);
+                border-bottom: var(--general-main-1);
+            }
+
+            .deriv-app > .app-contents__loading {
+                background-color: var(--general-main-1);
+            }
+
+            .deriv-app > .footer__loading {
+                background-color: var(--general-main-1);
+                border-bottom: var(--general-main-1);
+            }
+
+            .initial-loader__loading {
+                background-color: var(--general-main-1);
+            }
+        </style>
+        <script type="text/javascript">
+            !(function () {
+                if ('PerformanceLongTaskTiming' in window) {
+                    var g = (window.__tti = { e: [] });
+                    g.o = new PerformanceObserver(function (l) {
+                        g.e = g.e.concat(l.getEntries());
+                    });
+                    g.o.observe({ entryTypes: ['longtask'] });
+                }
+            })();
+        </script>
+        <script type="text/javascript">
+            var ui_store = localStorage.getItem('ui_store');
+            var l = window.location;
+            var is_bot =
+                /^\/bot/.test(l.pathname) || (/^\/(br_)/.test(l.pathname) && l.pathname.split('/')[2] === 'bot');
+
+            if (ui_store && ui_store.length > 0) {
+                var is_dark_theme = false;
+                if (is_bot) {
+                    // TODO: [disable-dark-bot] Re-enable dark theme when Bot is ready
+                    is_dark_theme = false;
+                } else {
+                    is_dark_theme = JSON.parse(ui_store).is_dark_mode_on || false;
+                }
+
+                if (is_dark_theme) {
+                    // if dark theme, change the property colors for dark theme
+                    document.documentElement.style.setProperty('--header-footer-bg-color', '#0b0e18');
+                    document.documentElement.style.setProperty('--content-bg-color', '#101320');
+                    document.documentElement.style.setProperty('--logo-loading-color', '#fff');
+                    document.documentElement.style.setProperty('--general-main-1', '#0e0e0e');
+                    document.documentElement.style.setProperty('--general-section-1', '#151717');
+                    document.documentElement.style.setProperty('--text-prominent', '#ffffff');
+                }
+            }
+        </script>
+        <!-- End theme styles -->
+        <!-- Start Anti-Clickjack -->
+        <style id="antiClickjack">
+            body {
+                display: none !important;
+            }
+        </style>
+        <script type="text/javascript">
+            if (self === top) {
+                var antiClickjack = document.getElementById('antiClickjack');
+                antiClickjack.parentNode.removeChild(antiClickjack);
+            } else {
+                top.location = self.location;
+            }
+        </script>
+        <!-- End Anti-Clickjack -->
+
+        <noscript>Your browser does not support JavaScript!</noscript>
+
+        <!-- Start GTM Script -->
+        <script>
+            try {
+                var gtm_id = 'GTM-NF7884S';
+                if (window.location.hostname === 'deriv-app.binary.sx') gtm_id = 'GTM-TNX2ZKH';
+                (function (w, d, s, l, i) {
+                    w[l] = w[l] || [];
+                    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                    var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s),
+                        dl = l != 'dataLayer' ? '&l=' + l : '';
+                    j.defer = true;
+                    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                    f.parentNode.insertBefore(j, f);
+                })(window, document, 'script', 'dataLayer', gtm_id);
+            } catch (err) {
+                console.log('Error inserting GTM script 1 ====>', err);
+            }
+        </script>
+        <!-- End GTM Script -->
+
+        <!-- Start URL Handler -->
+        <script type="text/javascript">
+            (function (l) {
+                if (l.search) {
+                    var q = {};
+                    l.search
+                        .slice(1)
+                        .split('&')
+                        .forEach(function (v) {
+                            var a = v.split('=');
+                            q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+                        });
+                    if (q.p !== undefined) {
+                        window.history.replaceState(
+                            null,
+                            null,
+                            l.pathname.slice(0, -1) + (q.p || '') + (q.q ? '?' + q.q : '') + l.hash
+                        );
+                    }
+                }
+            })(window.location);
+        </script>
+        <!-- End URL Handler -->
+
+        <!-- Start Cookies script -->
+        <script src="https://static.deriv.com/scripts/cookie.js" async></script>
+        <!-- End Cookies script -->
+
+        <meta
+            name="description"
+            content=" Deriv gives everyone an easy way to participate in the financial markets. Trade with as little as $1 USD on major currencies, stocks, indices, and commodities."
+        />
+        <meta
+            name="keywords"
+            content=" digital options, forex, forex trading, online trading, financial trading, binary trading, index trading, trading indices, forex trades, trading commodities, digital options strategy, binary broker, binary bet, digital options trading platform, binary strategy, finance, stocks, investment, trading"
+        />
+        <meta name="author" content="Deriv" />
+        <!-- TODO: iOS zoom bug for input elements means we'll get a lower user accessibility score since we're not allowing app.deriv.com to be scalable on mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="theme-color" content="#414652" />
+        <meta name="dcterms.rightsHolder" content="Deriv" />
+        <meta name="dcterms.rights" content="Deriv" />
+        <meta name="google-site-verification" content="g5u3TyEdmYJ_HKZ6EmpW1nlKwD4XPVeLMhN9leeMfuw" />
+        <meta
+            property="og:description"
+            content="Deriv gives everyone an easy way to participate in the financial markets. Trade with as little as $1 USD on major currencies, stocks, indices, and commodities."
+        />
+        <meta property="og:title" content="Deriv" />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:image"
+            content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR3qsyDtQ_1mlX1AoeV963gFP0UZBTcJOcdK0G802Vfg&s"
+        />
+        <meta name="google" content="notranslate" />
+        <meta name="referrer" content="origin" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://browser-update.org" />
+
+        <link rel="alternate" hreflang="en" href="https://app.deriv.com" />
+        <link rel="canonical" href="https://app.deriv.com" />
+
+        <title>Deriv App | Deriv</title>
+        <meta charset="UTF-8" />
+        <meta name="google-site-verification" content="g5u3TyEdmYJ_HKZ6EmpW1nlKwD4XPVeLMhN9leeMfuw" />
+    </head>
+
+    <body class="body theme">
+        <!-- Start GTM NoScript -->
+        <noscript
+            ><iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-NF7884S"
+                height="0"
+                width="0"
+                style="display: none; visibility: hidden"
+            ></iframe
+        ></noscript>
+        <!-- End GTM NoScript -->
+        <!-- Start GTM NoScript of GTM Test Environment -->
+        <noscript
+            ><iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-TNX2ZKH"
+                height="0"
+                width="0"
+                style="display: none; visibility: hidden"
+            ></iframe
+        ></noscript>
+        <!-- End GTM NoScript of GTM Test Environment -->
+
+        <!-- TODO: Display shell platform icon and text based on route -->
+
+        <div id="deriv_app" class="deriv-app">
+            <header
+                class="header__loading"
+                style="
+                    background: var(--general-main-1);
+                    border-bottom: 1px solid var(--general-section-1);
+                    position: fixed;
+                    z-index: 99;
+                    box-sizing: border-box;
+                    height: 48px;
+                    width: 100%;
+                    top: 0;
+                "
+            ></header>
+            <div class="app-contents app-contents__loading" style="margin-bottom: 0; overflow: hidden">
+                <div class="initial-loader initial-loader__loading">
+                    <div class="initial-loader__barspinner barspinner barspinner-light">
+                        <div class="initial-loader__barspinner--rect barspinner__rect barspinner__rect--1 rect1"></div>
+                        <div class="initial-loader__barspinner--rect barspinner__rect barspinner__rect--2 rect2"></div>
+                        <div class="initial-loader__barspinner--rect barspinner__rect barspinner__rect--3 rect3"></div>
+                        <div class="initial-loader__barspinner--rect barspinner__rect barspinner__rect--4 rect4"></div>
+                        <div class="initial-loader__barspinner--rect barspinner__rect barspinner__rect--5 rect5"></div>
+                    </div>
+                </div>
+            </div>
+            <footer
+                class="footer__loading"
+                style="
+                    background: var(--general-main-1);
+                    border-top: 1px solid var(--general-section-1);
+                    position: fixed;
+                    bottom: 0;
+                    width: 100%;
+                    height: 37px;
+                    z-index: 3;
+                "
+            ></footer>
+        </div>
+        <div id="wallets_modal_root" class="modal-root"></div>
+        <div id="v2_modal_root" class="modal-root"></div>
+        <div id="effortless_modal_root" class="modal-root"></div>
+        <div id="modal_root" class="modal-root"></div>
+        <div id="modal_root_absolute" class="modal-root modal-root--absolute"></div>
+        <!-- modal_root has background color. So, it cannot be used for toast messages. For those cases popup_root is used -->
+        <div id="popup_root" class="popup-root"></div>
+        <!-- LiveChat script -->
+        <script type="text/javascript">
+            window.__lc = window.__lc || {};
+            window.__lc.license = 12049137;
+            window.__lc.asyncInit = true;
+            (function (n, t, c) {
+                function i(n) {
+                    return e._h ? e._h.apply(null, n) : e._q.push(n);
+                }
+                var e = {
+                    _q: [],
+                    _h: null,
+                    _v: '2.0',
+                    on: function () {
+                        i(['on', c.call(arguments)]);
+                    },
+                    once: function () {
+                        i(['once', c.call(arguments)]);
+                    },
+                    off: function () {
+                        i(['off', c.call(arguments)]);
+                    },
+                    get: function () {
+                        if (!e._h) throw new Error('[LiveChatWidget] You can’t use getters before load.');
+                        return i(['get', c.call(arguments)]);
+                    },
+                    call: function () {
+                        i(['call', c.call(arguments)]);
+                    },
+                    init: function () {
+                        var n = t.createElement('script');
+                        (n.async = !0),
+                            (n.type = 'text/javascript'),
+                            (n.src = 'https://cdn.livechatinc.com/tracking.js'),
+                            t.head.appendChild(n);
+                    },
+                };
+                !n.__lc.asyncInit && e.init(), (n.LiveChatWidget = n.LiveChatWidget || e);
+            })(window, document, [].slice);
+        </script>
+        <!-- End LiveChat script -->
+    </body>
+</html>

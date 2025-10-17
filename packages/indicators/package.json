@@ -1,0 +1,50 @@
+{
+    "name": "@deriv/indicators",
+    "version": "1.0.0",
+    "description": "Deriv Indicators",
+    "author": "Deriv",
+    "homepage": "https://github.com/deriv-com/deriv-app#readme",
+    "license": "Apache-2.0",
+    "main": "src/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/deriv-com/deriv-app.git"
+    },
+    "engines": {
+        "node": "22.x"
+    },
+    "scripts": {
+        "start": "echo \"No start specified\"",
+        "serve": "echo \"No serve specified\"",
+        "build": "echo \"No build specified\"",
+        "build:travis": "echo \"No build:travis specified\"",
+        "precommit": "lint-staged",
+        "test": "jest --all",
+        "test:eslint": "eslint \"./src/**/*.?(js|jsx|ts|tsx)\"",
+        "test:stylelint": "echo \"No test:stylelint specified\"",
+        "deploy": "echo \"No deploy specified\"",
+        "deploy:clean": "echo \"No deploy:clean specified\"",
+        "deploy:folder": "echo \"No deploy:folder specified\"",
+        "deploy:staging": "echo \"No deploy:staging specified\"",
+        "deploy:production": "echo \"No deploy:production specified\""
+    },
+    "bugs": {
+        "url": "https://github.com/deriv-com/deriv-app/issues"
+    },
+    "devDependencies": {
+        "@babel/eslint-parser": "^7.25.1",
+        "@babel/preset-env": "^7.25.4",
+        "@babel/preset-react": "^7.24.7",
+        "ts-jest": "^29.2.5",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-binary": "^1.0.2",
+        "eslint-config-prettier": "^7.2.0",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-prettier": "^5.2.1"
+    },
+    "dependencies": {
+        "@deriv/shared": "^1.0.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    }
+}

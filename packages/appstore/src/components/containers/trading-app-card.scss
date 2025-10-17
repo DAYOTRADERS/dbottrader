@@ -1,0 +1,80 @@
+.trading-app-card {
+    display: inline-flex;
+    align-items: center;
+
+    &__icon {
+        &--container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 0 0 2rem;
+            &__clickable {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__container {
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 0 0 2rem;
+        margin-inline-start: 1.6rem;
+    }
+
+    &__details {
+        user-select: none;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        padding-inline-end: 2rem;
+        padding-inline-start: 0;
+        width: 100%;
+        &__short-code {
+            padding: 0.4rem;
+            height: fit-content;
+            width: fit-content;
+            margin-left: 1rem;
+            background-color: var(--icon-grey-background);
+            border-radius: 4px;
+        }
+        &__new {
+            padding: 0.1rem 0.6rem;
+            height: fit-content;
+            width: fit-content;
+            margin-inline-start: 1rem;
+            background-color: $color-yellow-4;
+            color: $color-yellow-5;
+            border-radius: $BORDER_RADIUS;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin-inline-start: auto;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    &--divider {
+        border-bottom: 1px solid var(--general-hover);
+    }
+
+    &__acc_status_badge {
+        max-width: fit-content;
+        margin-top: 1rem;
+        cursor: pointer;
+    }
+
+    &__title {
+        user-select: none;
+    }
+}

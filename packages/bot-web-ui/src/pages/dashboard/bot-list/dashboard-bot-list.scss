@@ -1,0 +1,92 @@
+.dbot-recent-bots {
+    --animation-delay: 0.1s;
+    --hover-color: #e40e1c;
+    --border-light-color: rgba(100, 217, 255, 0.7);
+
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    height: 35vh; 
+    min-height: 0;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #FF444F, #FF6444);
+            animation: dbot-header-underline 2s infinite alternate;
+        }
+
+        &-emoji {
+            animation: dbot-emoji-float 3s ease-in-out infinite;
+        }
+    }
+
+    &__scroll-container {
+        flex: 1; /* Fill remaining space */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        min-height: 0; /* Crucial for flex layouts */
+        max-height: 100%; /* Stay inside parent */
+        
+        scrollbar-width: thin;
+        scrollbar-color: var(--hover-color) rgba(0, 0, 0, 0.05);
+
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+        &::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 3px;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        gap: 1.5rem;
+        padding: 1rem;
+        background-color: transparent;
+
+        @media (min-width: 769px) {
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        }
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            padding: 0.5rem;
+        }
+    }
+
+    @keyframes dbot-header-underline {
+        0% { width: 50px; opacity: 0.7; }
+        100% { width: 120px; opacity: 1; }
+    }
+
+    @keyframes dbot-emoji-float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+    }
+
+    @for $i from 1 through 10 {
+        .dbot-workspace-card:nth-child(#{$i}) {
+            animation-delay: $i * 0.1s;
+        }
+    }
+}

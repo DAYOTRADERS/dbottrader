@@ -1,0 +1,26 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Target -->
+  <circle cx="140" cy="40" r="24" fill="#FCE4EC" stroke="#000" stroke-width="4"></circle>
+  <circle cx="140" cy="40" r="14" fill="#FFF" stroke="#000" stroke-width="2"></circle>
+  <circle cx="140" cy="40" r="4" fill="#000"></circle>
+
+  <!-- Arrow -->
+  <line x1="110" y1="80" x2="140" y2="40" stroke="#000" stroke-width="4"></line>
+  <polygon points="110,80 102,76 108,72" fill="#000"></polygon>
+
+  <!-- Person -->
+  <circle cx="80" cy="40" r="14" fill="#FFF" stroke="#000" stroke-width="3"></circle>
+  <path d="M80 54 L80 90 M80 60 L65 80 M80 60 L95 80 M70 90 L70 120 M90 90 L90 120" stroke="#000" stroke-width="4" fill="none"></path>
+  <polygon points="76,66 84,66 80,80" fill="#000"></polygon> <!-- Tie -->
+
+  <!-- Strategy Board -->
+  <rect x="40" y="130" width="80" height="50" rx="8" fill="#FFF" stroke="#000" stroke-width="3"></rect>
+  <line x1="48" y1="138" x2="60" y2="150" stroke="#000" stroke-width="3"></line>
+  <line x1="60" y1="138" x2="48" y2="150" stroke="#000" stroke-width="3"></line>
+  <circle cx="100" cy="140" r="5" fill="#000"></circle>
+  <path d="M50 160 Q75 135 100 160" fill="none" stroke="#000" stroke-width="3"></path>
+
+  <!-- Arrow pointing down from target to board -->
+  <line x1="140" y1="64" x2="80" y2="130" stroke="#000" stroke-dasharray="4,2" stroke-width="2"></line>
+  <polygon points="84,126 80,134 76,126" fill="#000"></polygon>
+</svg>

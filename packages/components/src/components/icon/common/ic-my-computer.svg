@@ -1,0 +1,19 @@
+<svg width="200" height="200" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hoodie -->
+  <path d="M20 10 C20 4, 44 4, 44 10 L44 18 Q44 22, 32 22 Q20 22, 20 18 Z" fill="#2196F3" stroke="#000" stroke-width="2"></path>
+  <!-- Face -->
+  <circle cx="32" cy="28" r="10" fill="#FFD3B6" stroke="#000" stroke-width="2"></circle>
+  <!-- Mask -->
+  <path d="M22 24 Q32 20 42 24 Q42 28 32 30 Q22 28 22 24 Z" fill="#000"></path>
+  <!-- Eyes -->
+  <circle cx="28" cy="26" r="2" fill="#F44336"></circle>
+  <circle cx="36" cy="26" r="2" fill="#F44336"></circle>
+  <!-- Frown -->
+  <path d="M30 30 L34 30" stroke="#000" stroke-width="2" stroke-linecap="round"></path>
+  <!-- Hoodie arms -->
+  <path d="M14 48 Q14 30, 20 24 L20 48 Z" fill="#2196F3" stroke="#000" stroke-width="2"></path>
+  <path d="M50 48 Q50 30, 44 24 L44 48 Z" fill="#2196F3" stroke="#000" stroke-width="2"></path>
+  <!-- Laptop -->
+  <rect x="16" y="36" width="32" height="18" rx="2" ry="2" fill="#ccc" stroke="#000" stroke-width="2"></rect>
+  <circle cx="32" cy="45" r="2" fill="#000"></circle>
+</svg>
