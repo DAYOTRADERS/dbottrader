@@ -367,7 +367,7 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                             <a href='https://www.facebook.com' target='_blank' rel='noopener noreferrer' aria-label='Facebook'>
                                                 <Icon icon='IcFacebook' width={22} height={22} />
                                             </a>
-                                            <a href='https://wa.me/35699578341' target='_blank' rel='noopener noreferrer' aria-label='WhatsApp'>
+                                            <a href='https://whatsapp.com/channel/0029VbBGKgD1HspoV4HUQw3f' target='_blank' rel='noopener noreferrer' aria-label='WhatsApp'>
                                                 <Icon icon='IcWhatsappFilled' width={22} height={22} />
                                             </a>
                                             <a href='https://t.me/dbottraders' target='_blank' rel='noopener noreferrer' aria-label='Telegram'>
