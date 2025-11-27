@@ -21,72 +21,72 @@ const getBlockly = () => {
 };
 
 // Static bot configurations
+// Static bot configurations
 const STATIC_BOTS = {
     auto_robot: {
         id: 'auto_robot',
-        name: 'BRAM EVEN ODD PRINTER',
+        name: 'dbottrader BRAM EVEN ODD PRINTER',
         xml: AutoRobot,
         timestamp: Date.now(),
         save_type: save_types.LOCAL,
     },
     over_under: {
         id: 'over_under_bot_by_GLE',
-        name: 'Deriv wizard',
+        name: 'dbottrader Deriv wizard',
         xml: OverUnderBot,
         timestamp: Date.now(),
         save_type: save_types.LOCAL,
     },
     deriv_miner_pro: {
         id: 'deriv_miner_pro',
-        name: 'ENHANCED Digit Switcher VERSION 5',
+        name: 'dbottrader ENHANCED Digit Switcher VERSION 5',
         xml: Derivminer,
         timestamp: Date.now(),
         save_type: save_types.LOCAL,
     },
     dollar_flipper: {
         id: 'dollar_flipper',
-        name: 'master G8 OVER UNDER BY STATE FX VERSION 1 2026.',
+        name: 'dbottrader master G8 OVER UNDER BY STATE FX VERSION 1 2026.',
         xml: Derivflipper,
         timestamp: Date.now(),
         save_type: save_types.LOCAL,
     },
     printer: {
         id: 'printer',
-        name: 'Over Destroyer by state fx',
+        name: 'dbottrader Over Destroyer by state fx',
         xml: Printer,
         timestamp: Date.now(),
         save_type: save_types.LOCAL,
     },
     under8: {
         id: 'under8',
-        name: 'STATES Digit Switcher V2',
+        name: 'dbottrader STATES Digit Switcher V2',
         xml: Under8,
         timestamp: Date.now(),
         save_type: save_types.LOCAL,
     },
     dodo: {
         id: 'dodo',
-        name: 'Aiunder8-7-6-5recoveryunder3-4-5adjustable',
+        name: 'dbottrader Aiunder8-7-6-5recoveryunder3-4-5adjustable',
         xml: Dodo,
         timestamp: Date.now(),
         save_type: save_types.LOCAL,
     },
     pepe: {
         id: 'pepe',
-        name: 'PROFIT GAINER XVT',
+        name: 'dbottrader PROFIT GAINER XVT',
         xml: Pepe,
         timestamp: Date.now(),
         save_type: save_types.LOCAL,
     },
     kuku: {
         id: 'kuku',
-        name: 'PROFIT GAINER XVT',
+        name: 'dbottrader PROFIT GAINER XVT',
         xml: Kuku,
         timestamp: Date.now(),
         save_type: save_types.LOCAL,
     },
 };
-
 const getStaticBots = () => Object.values(STATIC_BOTS);
 
 /**
