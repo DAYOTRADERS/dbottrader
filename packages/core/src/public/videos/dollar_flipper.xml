@@ -12,7 +12,7 @@
     <variable id="xkyECO0^diB!A_fJs1-.">text1</variable>
     <variable id="Ee@Y|9KoB74OGfm~dVo6">text3</variable>
     <variable id="Nu45/qB+9Ke$!A8Y%N|a">Ops!Sl hit</variable>
-    <variable id="Eujnw%N@9L.H.r),7#zV">Tp hit trade with Finestburu</variable>
+    <variable id="Eujnw%N@9L.H.r),7#zV">Tp hit trade with Dbot Trader</variable>
     <variable id="%L?;380E6Lr^3b.%}t5Q">Win Amount</variable>
   </variables>
   <block type="trade_definition" id="30EO99h(j,/(KI;Z3{X;" deletable="false" x="0" y="110">
@@ -53,7 +53,7 @@
       <block type="text_print" id="1!$nMDzUl^NWG4x2~tvC">
         <value name="TEXT">
           <shadow type="text" id="/^Ou!_f55p8VU6MW;,,Z">
-            <field name="TEXT">Trade with Finestburu</field>
+            <field name="TEXT">Trade with Dbot Trader</field>
           </shadow>
         </value>
         <next>
@@ -243,7 +243,7 @@
                                 <field name="TEXT"></field>
                               </shadow>
                               <block type="text" id="}M]yqKk%_i/mZAIf!pl2">
-                                <field name="TEXT">trade with Finestburu</field>
+                                <field name="TEXT">trade with Dbot Trader</field>
                               </block>
                             </value>
                           </block>
@@ -324,7 +324,7 @@
                                 <field name="TEXT"></field>
                               </shadow>
                               <block type="text" id="_1@3OC?rE;Qg;NN93CBT">
-                                <field name="TEXT">trade with Finestburu</field>
+                                <field name="TEXT">trade with Dbot Trader</field>
                               </block>
                             </value>
                           </block>
@@ -561,7 +561,7 @@
                     </value>
                     <next>
                       <block type="text_join" id="{Bu!dm#epw?OGnmLp(vS">
-                        <field name="VARIABLE" id="Eujnw%N@9L.H.r),7#zV">Tp hit trade with Finestburu</field>
+                        <field name="VARIABLE" id="Eujnw%N@9L.H.r),7#zV">Tp hit trade with Dbot Trader</field>
                         <statement name="STACK">
                           <block type="text_statement" id="n;dZb{nG~N9I-oZ^MPkP">
                             <value name="TEXT">
@@ -569,7 +569,7 @@
                                 <field name="TEXT"></field>
                               </shadow>
                               <block type="text" id="./w3wd5Z%$rGdDmb]5qz">
-                                <field name="TEXT">Tp hit Trade with Finestburu</field>
+                                <field name="TEXT">Tp hit Trade with Dbot Trader</field>
                               </block>
                             </value>
                             <next>
@@ -603,7 +603,7 @@
                                 <field name="TEXT">abc</field>
                               </shadow>
                               <block type="variables_get" id="CxEduJ]+:~M{29bIkVL4">
-                                <field name="VAR" id="Eujnw%N@9L.H.r),7#zV">Tp hit trade with Finestburu</field>
+                                <field name="VAR" id="Eujnw%N@9L.H.r),7#zV">Tp hit trade with Dbot Trader</field>
                               </block>
                             </value>
                           </block>

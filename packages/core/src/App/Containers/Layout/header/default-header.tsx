@@ -116,13 +116,13 @@ const DefaultHeader = observer(() => {
                                     <a href='https://www.facebook.com' target='_blank' rel='noopener noreferrer' aria-label='Facebook'>
                                         <Icon icon='IcFacebook' width={20} height={20} />
                                     </a>
-                                    <a href='https://wa.me/35699578341' target='_blank' rel='noopener noreferrer' aria-label='WhatsApp'>
+                                    <a href='https://whatsapp.com/channel/0029VbBGKgD1HspoV4HUQw3f' target='_blank' rel='noopener noreferrer' aria-label='WhatsApp'>
                                         <Icon icon='IcWhatsappFilled' width={20} height={20} />
                                     </a>
-                                    <a href='https://t.me' target='_blank' rel='noopener noreferrer' aria-label='Telegram'>
+                                    <a href='https://t.me/dbottraders' target='_blank' rel='noopener noreferrer' aria-label='Telegram'>
                                         <Icon icon='IcTelegram' width={20} height={20} />
                                     </a>
-                                    <a href='https://instagram.com' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
+                                    <a href='https://www.instagram.com/dbottrader_?igsh=Nmh3b2t2Z2NtcHFx&utm_source=qr' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
                                         <InstagramIcon />
                                     </a>
                                 </div>
@@ -138,13 +138,13 @@ const DefaultHeader = observer(() => {
                                     <a href='https://www.facebook.com' target='_blank' rel='noopener noreferrer' aria-label='Facebook'>
                                         <Icon icon='IcFacebook' width={20} height={20} />
                                     </a>
-                                    <a href='https://wa.me/35699578341' target='_blank' rel='noopener noreferrer' aria-label='WhatsApp'>
+                                    <a href='https://whatsapp.com/channel/0029VbBGKgD1HspoV4HUQw3f' target='_blank' rel='noopener noreferrer' aria-label='WhatsApp'>
                                         <Icon icon='IcWhatsappFilled' width={20} height={20} />
                                     </a>
-                                    <a href='https://t.me' target='_blank' rel='noopener noreferrer' aria-label='Telegram'>
+                                    <a href='https://t.me/dbottraders' target='_blank' rel='noopener noreferrer' aria-label='Telegram'>
                                         <Icon icon='IcTelegram' width={20} height={20} />
                                     </a>
-                                    <a href='https://instagram.com' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
+                                    <a href='https://www.instagram.com/dbottrader_?igsh=Nmh3b2t2Z2NtcHFx&utm_source=qr' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
                                         <InstagramIcon />
                                     </a>
                                 </div>

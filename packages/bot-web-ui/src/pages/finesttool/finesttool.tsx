@@ -6,7 +6,7 @@ const Finesttool = () => {
         <div className={styles.container}>
             <iframe
                 src="https://api.binarytool.site/"
-                title="Finest Analysis"
+                title="Dbot Trader"
                 className={styles.iframe}
                 allowFullScreen
             />

@@ -41,7 +41,7 @@ const TradersHubLoggedOut = observer(() => {
                     <GetStartedTradingBanner />
                     <Text size={isDesktop ? 'm' : 'xsm'} weight='bold' color='prominent'>
                        <a href=''>
-                           <Localize i18n_default_text="FINEST ANALYSIS" />
+                           <Localize i18n_default_text="Dbot Trader" />
                         </a>
                     </Text>
                     {isDesktop ? (

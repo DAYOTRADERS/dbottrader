@@ -11,6 +11,7 @@ import Under8 from './bots/DoubleOverWithanalysis.xml';
 import Dodo from './bots/Aiunder8-7-6-5recoveryunder3-4-5adjustable.xml';
 import Pepe from './bots/PROFITGAINERXVTscunentrypointbeforrun.xml';
 import Kuku from './bots/PROFITGAINERXVT.xml';
+import Digitflipper from './bots/DigitFlipper.xml';
 
 // Ensure Blockly is available globally
 const getBlockly = () => {
@@ -23,6 +24,20 @@ const getBlockly = () => {
 // Static bot configurations
 // Static bot configurations
 const STATIC_BOTS = {
+    digit_flipper: {
+        id: 'digit_flipper',
+        name: 'Digit Flipper',
+        xml: Digitflipper,
+        timestamp: Date.now(),
+        save_type: save_types.LOCAL,
+    },
+    digit_flipper: {
+        id: 'digit_flipper',
+        name: 'Over Under Bot',
+        xml: Digitflipper,
+        timestamp: Date.now(),
+        save_type: save_types.LOCAL,
+    },
     auto_robot: {
         id: 'auto_robot',
         name: 'dbottrader BRAM EVEN ODD PRINTER',
@@ -60,7 +75,14 @@ const STATIC_BOTS = {
     },
     under8: {
         id: 'under8',
-        name: 'dbottrader STATES Digit Switcher V2',
+        name: 'dbottrader Digit Switcher V2',
+        xml: Under8,
+        timestamp: Date.now(),
+        save_type: save_types.LOCAL,
+    },
+     under8: {
+        id: 'under8',
+        name: 'dbot python hack',
         xml: Under8,
         timestamp: Date.now(),
         save_type: save_types.LOCAL,

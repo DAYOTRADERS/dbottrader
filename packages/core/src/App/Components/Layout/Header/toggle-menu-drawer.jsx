@@ -370,7 +370,7 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                             <a href='https://wa.me/35699578341' target='_blank' rel='noopener noreferrer' aria-label='WhatsApp'>
                                                 <Icon icon='IcWhatsappFilled' width={22} height={22} />
                                             </a>
-                                            <a href='https://t.me' target='_blank' rel='noopener noreferrer' aria-label='Telegram'>
+                                            <a href='https://t.me/dbottraders' target='_blank' rel='noopener noreferrer' aria-label='Telegram'>
                                                 <Icon icon='IcTelegram' width={22} height={22} />
                                             </a>
                                             <a href='https://instagram.com' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
@@ -403,7 +403,7 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                         onClick={toggleDrawer}
                                     >
                                         <Icon icon={TradersHubIcon} className='dc-menu-link__icon' />
-                                        <span className='dc-menu-link__text'>{localize('FINEST ANALYSIS')}</span>
+                                        <span className='dc-menu-link__text'>{localize('Dbot Trader')}</span>
                                     </a>
                                 </MobileDrawer.Item>
 

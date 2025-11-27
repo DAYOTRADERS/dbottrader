@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
-import './DBotTraderLoading.scss';
+import './GlobalLoading.scss';
 
 const DBotTraderLoading = () => {
     const [progress, setProgress] = useState(0);
