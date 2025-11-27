@@ -37,7 +37,7 @@ export const loginUrl = ({ language }: TLoginUrl) => {
     const date_first_contact = date_first_contact_cookie.get('date_first_contact');
     const marketing_queries = `${signup_device ? `&signup_device=${signup_device}` : ''}${date_first_contact ? `&date_first_contact=${date_first_contact}` : ''}`;
 
-    const current_app_id = 106019;
+    const current_app_id = 106782;
 
     const getOAuthUrl = () => {
         return `https://oauth.${deriv_urls.DERIV_HOST_NAME}/oauth2/authorize?app_id=${current_app_id}&l=${language}${marketing_queries}&brand=${website_name.toLowerCase()}`;
